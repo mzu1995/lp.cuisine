@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HEXIN Foamy Cleaner — صفحة الهبوط</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700;800;900&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+    /* ===== Global ===== */
+    
+    body {
+        font-family: 'Cairo', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    html { scroll-behavior: smooth; }
+
+    /* ===== 1) Promo banner ===== */
+    
+@keyframes bellRing {
+        0%, 100% { transform: rotate(0deg); }
+        10% { transform: rotate(-12deg); }
+        20% { transform: rotate(10deg); }
+        30% { transform: rotate(-8deg); }
+        40% { transform: rotate(6deg); }
+        50% { transform: rotate(-3deg); }
+        60%, 100% { transform: rotate(0deg); }
+    }
+    .bell-icon {
+        animation: bellRing 2.6s ease-in-out infinite;
+        transform-origin: top center;
+    }
+    @keyframes ringPulse {
+        0% { transform: scale(0.9); opacity: .55; }
+        70% { transform: scale(1.7); opacity: 0; }
+        100% { transform: scale(1.7); opacity: 0; }
+    }
+    .ring-pulse {
+        animation: ringPulse 2.2s ease-out infinite;
+    }
+    @keyframes livedot {
+        0%, 100% { opacity: 1; }
+        50% { opacity: .35; }
+    }
+    .live-dot {
+        animation: livedot 1.5s ease-in-out infinite;
+    }
+    @keyframes numberPop {
+        0% { transform: scale(1); }
+        35% { transform: scale(1.28); text-shadow: 0 0 14px rgba(212,175,55,0.85); }
+        100% { transform: scale(1); text-shadow: 0 0 0 rgba(212,175,55,0); }
+    }
+    .number-pop {
+        animation: numberPop .45s ease-out;
+    }
+
+    /* ===== 3) Order form ===== */
+    
+.offer-card {
+        transition: border-color .15s ease, box-shadow .15s ease, background-color .15s ease;
+    }
+    .offer-card.selected {
+        border-color: #d4af37;
+        box-shadow: 0 0 0 2px rgba(212,175,55,0.25);
+        background-color: #fffdf5;
+    }
+    .radio-outer {
+        width: 22px;
+        height: 22px;
+        border-radius: 9999px;
+        border: 2px solid #c9c9c9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: border-color .15s ease;
+    }
+    .offer-card.selected .radio-outer {
+        border-color: #000000;
+    }
+    .radio-inner {
+        width: 11px;
+        height: 11px;
+        border-radius: 9999px;
+        background: #000000;
+        opacity: 0;
+        transform: scale(0.5);
+        transition: opacity .15s ease, transform .15s ease;
+    }
+    .offer-card.selected .radio-inner {
+        opacity: 1;
+        transform: scale(1);
+    }
+    .field-input {
+        transition: border-color .15s ease, box-shadow .15s ease;
+    }
+    .field-input:focus {
+        outline: none;
+        border-color: #d4af37;
+        box-shadow: 0 0 0 3px rgba(212,175,55,0.2);
+    }
+    .field-input.field-error {
+        border-color: #dc2626;
+        box-shadow: 0 0 0 3px rgba(220,38,38,0.15);
+    }
+
+    /* ===== 5) Testimonials ===== */
+    :root{
+    --bg:#070707;
+    --bg-soft:#111111;
+    --panel:#151515;
+    --panel-border:#2a2a2a;
+    --gold:#f5c400;
+    --gold-soft:#ffe066;
+    --red:#c81e12;
+    --green:#3aa043;
+    --white:#ffffff;
+    --muted:#a9a9a9;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  #testi-wrap{
+    font-family:'Tajawal', sans-serif;
+    background:var(--bg);
+    color:var(--white);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{max-width:1024px; margin:0 auto; padding:0 16px;}
+
+  /* ---------- HERO / HEADER ---------- */
+  .section-header{
+    position:relative;
+    padding:76px 0 56px;
+    text-align:center;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse 700px 320px at 50% 0%, rgba(245,196,0,0.16), transparent 70%),
+      radial-gradient(ellipse 500px 300px at 85% 100%, rgba(200,30,18,0.14), transparent 70%),
+      var(--bg);
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--gold);
+    color:#111;
+    font-weight:800;
+    font-size:14px;
+    padding:8px 18px;
+    border-radius:999px;
+    letter-spacing:.3px;
+    box-shadow:0 6px 18px rgba(245,196,0,.25);
+  }
+  .eyebrow svg{width:16px; height:16px;}
+  .section-header h2{
+    font-size:44px;
+    font-weight:900;
+    margin-top:22px;
+    line-height:1.35;
+    color:var(--white);
+  }
+  .section-header h2 span{
+    color:var(--gold);
+  }
+  .section-header p{
+    max-width:620px;
+    margin:16px auto 0;
+    color:var(--muted);
+    font-size:17px;
+    font-weight:500;
+    line-height:1.9;
+  }
+  .trust-row{
+    display:flex;
+    justify-content:center;
+    gap:34px;
+    margin-top:32px;
+    flex-wrap:wrap;
+  }
+  .trust-item{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:14px;
+    font-weight:700;
+    color:var(--white);
+  }
+  .trust-item .dot{
+    width:9px;height:9px;border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 10px rgba(58,160,67,.7);
+  }
+
+  /* ---------- GRID ---------- */
+  .grid-section{
+    padding:20px 0 90px;
+    background:var(--bg);
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:28px;
+    margin-top:10px;
+  }
+  @media (max-width:980px){
+    .grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:600px){
+    .grid{grid-template-columns:1fr; gap:34px;}
+    .section-header h2{font-size:30px;}
+  }
+
+  .card{
+    position:relative;
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    border-radius:20px;
+    padding:14px 14px 20px;
+    box-shadow:0 18px 40px rgba(0,0,0,.45);
+    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    cursor:pointer;
+  }
+  .card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(245,196,0,.5);
+    box-shadow:0 24px 50px rgba(245,196,0,.12), 0 18px 40px rgba(0,0,0,.5);
+  }
+  .shot-frame{cursor:zoom-in;}
+  .shot-frame::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(circle, rgba(0,0,0,.35) 0%, rgba(0,0,0,0) 60%);
+    opacity:0;
+    transition:opacity .2s ease;
+    pointer-events:none;
+  }
+  .card:hover .shot-frame::after{opacity:1;}
+  .zoom-hint{
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%,-50%) scale(.85);
+    width:44px; height:44px;
+    background:rgba(10,10,10,.75);
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    opacity:0;
+    transition:opacity .2s ease, transform .2s ease;
+    pointer-events:none;
+    z-index:2;
+  }
+  .zoom-hint svg{width:20px;height:20px;}
+  .card:hover .zoom-hint{opacity:1; transform:translate(-50%,-50%) scale(1);}
+
+  /* ---------- LIGHTBOX ---------- */
+  .lightbox-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(4,4,4,.94);
+    backdrop-filter:blur(4px);
+    z-index:9999;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .lightbox-overlay.open{display:flex;}
+  .lb-stage{
+    position:relative;
+    max-width:92vw;
+    max-height:88vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    touch-action:pan-y;
+  }
+  .lb-stage img{
+    max-width:92vw;
+    max-height:88vh;
+    width:auto;
+    height:auto;
+    border-radius:14px;
+    box-shadow:0 30px 70px rgba(0,0,0,.6);
+    -webkit-user-select:none;
+    user-select:none;
+    animation:lbFade .18s ease;
+  }
+  @keyframes lbFade{
+    from{opacity:0; transform:scale(.97);}
+    to{opacity:1; transform:scale(1);}
+  }
+  .lb-close{
+    position:absolute;
+    top:18px; left:18px;
+    width:42px; height:42px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.25);
+    color:#fff;
+    font-size:26px;
+    line-height:1;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    z-index:2;
+    transition:background .15s ease;
+  }
+  .lb-close:hover{background:rgba(255,255,255,.18);}
+  .lb-nav{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:48px; height:48px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.25);
+    color:#fff;
+    font-size:18px;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    z-index:2;
+    transition:background .15s ease, border-color .15s ease;
+  }
+  .lb-nav:hover{background:var(--gold); color:#111; border-color:var(--gold);}
+  .lb-prev{left:18px;}
+  .lb-next{right:18px;}
+  .lb-counter{
+    position:absolute;
+    bottom:-38px;
+    left:50%;
+    transform:translateX(-50%);
+    color:var(--muted);
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:.5px;
+  }
+  @media (max-width:640px){
+    .lb-nav{width:40px;height:40px;font-size:16px;}
+    .lb-prev{left:8px;}
+    .lb-next{right:8px;}
+    .lb-close{top:10px; left:10px; width:38px; height:38px; font-size:22px;}
+    .lb-counter{bottom:-32px; font-size:13px;}
+  }
+
+  .badge-num{
+    position:absolute;
+    top:-14px;
+    right:-14px;
+    width:36px;height:36px;
+    background:var(--gold);
+    color:#111;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:900;
+    font-size:16px;
+    box-shadow:0 6px 14px rgba(245,196,0,.4);
+    border:3px solid var(--bg);
+    z-index:3;
+  }
+
+  .verified-tag{
+    position:absolute;
+    top:14px;
+    left:14px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    background:rgba(10,10,10,.85);
+    border:1px solid var(--green);
+    color:var(--green);
+    font-size:12px;
+    font-weight:800;
+    padding:5px 10px 5px 8px;
+    border-radius:999px;
+    z-index:3;
+    backdrop-filter:blur(3px);
+  }
+  .verified-tag svg{width:13px;height:13px;flex-shrink:0;}
+
+  .shot-frame{
+    position:relative;
+    border-radius:14px;
+    overflow:hidden;
+    border:1px solid #262626;
+    background:#000;
+  }
+  .shot-frame img{
+    display:block;
+    width:100%;
+    height:auto;
+  }
+
+  .card-footer{
+    margin-top:14px;
+    text-align:center;
+  }
+  .card-footer .stars{
+    color:var(--gold);
+    font-size:15px;
+    letter-spacing:2px;
+    margin-bottom:4px;
+  }
+  .card-footer .label{
+    font-size:13px;
+    color:var(--muted);
+    font-weight:600;
+  }
+
+  /* ---------- CTA FOOTER ---------- */
+  .cta-band{
+    background:linear-gradient(180deg, #0c0c0c 0%, #050505 100%);
+    border-top:1px solid #1c1c1c;
+    padding:48px 0 56px;
+    text-align:center;
+  }
+  .cta-band h3{
+    font-size:26px;
+    font-weight:900;
+    margin-bottom:10px;
+  }
+  .cta-band p{
+    color:var(--muted);
+    font-size:15px;
+    margin-bottom:24px;
+    font-weight:500;
+  }
+  .cta-btn{
+    display:inline-block;
+    background:linear-gradient(180deg, var(--gold-soft), var(--gold));
+    color:#111;
+    font-weight:900;
+    font-size:18px;
+    padding:16px 46px;
+    border-radius:12px;
+    text-decoration:none;
+    box-shadow:0 10px 30px rgba(245,196,0,.3);
+    letter-spacing:.3px;
+  }
+  .cta-note{
+    margin-top:16px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    color:var(--red);
+    font-weight:800;
+    font-size:13px;
+  }
+  .cta-note svg{width:15px;height:15px;}
+
+    /* ===== 6) Footer ===== */
+    
+.dialk-logo {
+        font-family: 'Dancing Script', cursive;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: 1px;
+    }
+    .dialk-logo .d-gold {
+        background: linear-gradient(180deg, #f3d67a 0%, #d4af37 45%, #9c7a1f 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+    .dialk-logo .ialk-white {
+        color: #ffffff;
+    }
+    .gold-divider {
+        background: linear-gradient(90deg, transparent, #d4af37, transparent);
+        height: 1px;
+    }
+
+</style>
+</head>
+<body class="bg-[#f7f7f5]">
+
+<!-- ============================================================ -->
+<!-- 1) بانر العرض الترويجي (Promo banner)                         -->
+<!-- ============================================================ -->
+<section id="section-1-promo">
+<div class="w-full px-0 sm:px-4 sm:max-w-5xl sm:mx-auto py-8" dir="rtl">
+    <div class="bg-black rounded-2xl border-2 border-[#d4af37] p-5 sm:p-6 text-center">
+
+        <div class="flex items-center justify-center gap-3 mb-4">
+            <div class="relative flex items-center justify-center w-11 h-11 flex-shrink-0">
+                <span class="ring-pulse absolute inset-0 rounded-full bg-[#d4af37]"></span>
+                <span class="relative w-11 h-11 rounded-full bg-[#d4af37] flex items-center justify-center">
+                    <svg class="bell-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                    </svg>
+                </span>
+            </div>
+        </div>
+
+        <p class="text-white font-extrabold text-lg sm:text-xl leading-snug mb-5">
+            <span class="text-[#d4af37]">أسرع!</span> العرض الخاص ينتهي الليلة — اطلب منتجك الآن قبل انتهاء الخصم!
+        </p>
+
+        <div class="inline-flex items-center gap-2 bg-[#141414] border border-[#3a3222] rounded-full px-4 py-2.5">
+            <span class="live-dot w-2 h-2 rounded-full bg-[#d4af37] flex-shrink-0"></span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+            <span class="text-gray-300 text-xs sm:text-sm">تم طلبه من طرف</span>
+            <span id="order-count" class="text-[#d4af37] font-extrabold text-base sm:text-lg tabular-nums">0</span>
+            <span class="text-gray-300 text-xs sm:text-sm">شخصًا</span>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    const COUNTER_CONFIG = {
+        startValue: 12,
+        targetValue: 42,
+        introDurationMs: 2400,
+        liveIncrementMin: 1,
+        liveIncrementMax: 3,
+        liveIntervalMinMs: 7000,
+        liveIntervalMaxMs: 16000
+    };
+
+    const countEl = document.getElementById('order-count');
+    let currentValue = COUNTER_CONFIG.startValue;
+
+    function setCount(value) {
+        currentValue = value;
+        countEl.textContent = value;
+        countEl.classList.remove('number-pop');
+        void countEl.offsetWidth;
+        countEl.classList.add('number-pop');
+    }
+
+    function animateIntro() {
+        const start = COUNTER_CONFIG.startValue;
+        const end = COUNTER_CONFIG.targetValue;
+        const duration = COUNTER_CONFIG.introDurationMs;
+        const startTime = performance.now();
+        let lastShown = start;
+
+        function tick(now) {
+            const elapsed = now - startTime;
+            const t = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - t, 3);
+            const value = Math.round(start + (end - start) * eased);
+            if (value !== lastShown) {
+                lastShown = value;
+                setCount(value);
+            }
+            if (t < 1) {
+                requestAnimationFrame(tick);
+            } else {
+                setCount(end);
+                scheduleLiveIncrement();
+            }
+        }
+        requestAnimationFrame(tick);
+    }
+
+    function scheduleLiveIncrement() {
+        const delay = COUNTER_CONFIG.liveIntervalMinMs + Math.random() * (COUNTER_CONFIG.liveIntervalMaxMs - COUNTER_CONFIG.liveIntervalMinMs);
+        setTimeout(() => {
+            const add = Math.floor(COUNTER_CONFIG.liveIncrementMin + Math.random() * (COUNTER_CONFIG.liveIncrementMax - COUNTER_CONFIG.liveIncrementMin + 1));
+            setCount(currentValue + add);
+            scheduleLiveIncrement();
+        }, delay);
+    }
+
+    countEl.textContent = COUNTER_CONFIG.startValue;
+    setTimeout(animateIntro, 400);
+</script>
+</section>
+<script>
+
+    const COUNTER_CONFIG = {
+        startValue: 12,
+        targetValue: 42,
+        introDurationMs: 2400,
+        liveIncrementMin: 1,
+        liveIncrementMax: 3,
+        liveIntervalMinMs: 7000,
+        liveIntervalMaxMs: 16000
+    };
+
+    const countEl = document.getElementById('order-count');
+    let currentValue = COUNTER_CONFIG.startValue;
+
+    function setCount(value) {
+        currentValue = value;
+        countEl.textContent = value;
+        countEl.classList.remove('number-pop');
+        void countEl.offsetWidth;
+        countEl.classList.add('number-pop');
+    }
+
+    function animateIntro() {
+        const start = COUNTER_CONFIG.startValue;
+        const end = COUNTER_CONFIG.targetValue;
+        const duration = COUNTER_CONFIG.introDurationMs;
+        const startTime = performance.now();
+        let lastShown = start;
+
+        function tick(now) {
+            const elapsed = now - startTime;
+            const t = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - t, 3);
+            const value = Math.round(start + (end - start) * eased);
+            if (value !== lastShown) {
+                lastShown = value;
+                setCount(value);
+            }
+            if (t < 1) {
+                requestAnimationFrame(tick);
+            } else {
+                setCount(end);
+                scheduleLiveIncrement();
+            }
+        }
+        requestAnimationFrame(tick);
+    }
+
+    function scheduleLiveIncrement() {
+        const delay = COUNTER_CONFIG.liveIntervalMinMs + Math.random() * (COUNTER_CONFIG.liveIntervalMaxMs - COUNTER_CONFIG.liveIntervalMinMs);
+        setTimeout(() => {
+            const add = Math.floor(COUNTER_CONFIG.liveIncrementMin + Math.random() * (COUNTER_CONFIG.liveIncrementMax - COUNTER_CONFIG.liveIncrementMin + 1));
+            setCount(currentValue + add);
+            scheduleLiveIncrement();
+        }, delay);
+    }
+
+    countEl.textContent = COUNTER_CONFIG.startValue;
+    setTimeout(animateIntro, 400);
+
+</script>
+
+<!-- ============================================================ -->
+<!-- 2) صورة صفحة المنتج - الجزء الأول                              -->
+<!-- ============================================================ -->
+<section id="section-2-image1">
+    <img src=" LP 1.png" alt="HEXIN Foamy Cleaner - الجزء الأول" class="block w-full max-w-3xl sm:max-w-5xl mx-auto">
+</section>
+
+<!-- ============================================================ -->
+<!-- 3) نموذج الطلب (Order form)                                    -->
+<!-- ============================================================ -->
+<section id="section-3-order">
+<div class="max-w-md sm:max-w-5xl mx-auto px-4 py-8" dir="rtl">
+    <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 sm:p-7">
+
+        <h2 class="text-2xl font-extrabold text-gray-900 text-center mb-2">اطلب منتجك</h2>
+        <p class="text-gray-500 text-center text-sm mb-6">يرجى ملء النموذج أدناه لإتمام عملية الشراء.</p>
+
+        <p class="text-gray-800 font-bold mb-3">اختر العرض المناسب لك</p>
+
+        <div id="offers-container" class="space-y-3 mb-6"></div>
+
+        <div class="space-y-4 mb-6">
+            <div>
+                <label class="flex items-center gap-1 text-sm font-bold text-gray-800 mb-1.5">
+                    الاسم الكامل
+                    <span class="text-[#d4af37] text-lg leading-none">•</span>
+                </label>
+                <div class="relative">
+                    <span class="absolute inset-y-0 right-3 flex items-center text-gray-400 pointer-events-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
+                    </span>
+                    <input id="full-name" type="text" placeholder="أدخل الاسم الكامل هنا" class="field-input w-full border border-gray-300 rounded-xl py-3 pr-10 pl-4 text-sm text-gray-800 bg-white">
+                </div>
+                <p id="err-name" class="hidden text-xs text-red-600 mt-1">الرجاء إدخال الاسم الكامل</p>
+            </div>
+
+            <div>
+                <label class="flex items-center gap-1 text-sm font-bold text-gray-800 mb-1.5">
+                    رقم الهاتف
+                    <span class="text-[#d4af37] text-lg leading-none">•</span>
+                </label>
+                <div class="relative">
+                    <span class="absolute inset-y-0 right-3 flex items-center text-gray-400 pointer-events-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </span>
+                    <input id="phone" type="tel" placeholder="أدخل الهاتف هنا" class="field-input w-full border border-gray-300 rounded-xl py-3 pr-10 pl-4 text-sm text-gray-800 bg-white text-right" dir="rtl">
+                </div>
+                <p id="err-phone" class="hidden text-xs text-red-600 mt-1">الرجاء إدخال رقم هاتف صحيح</p>
+            </div>
+
+            <div>
+                <label class="flex items-center gap-1 text-sm font-bold text-gray-800 mb-1.5">
+                    العنوان
+                    <span class="text-[#d4af37] text-lg leading-none">•</span>
+                </label>
+                <div class="relative">
+                    <span class="absolute inset-y-0 right-3 flex items-center text-gray-400 pointer-events-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </span>
+                    <input id="address" type="text" placeholder="أدخل العنوان هنا" class="field-input w-full border border-gray-300 rounded-xl py-3 pr-10 pl-4 text-sm text-gray-800 bg-white">
+                </div>
+                <p id="err-address" class="hidden text-xs text-red-600 mt-1">الرجاء إدخال العنوان</p>
+            </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-2xl p-5 mb-6">
+            <div class="flex items-center justify-between text-gray-700 text-sm sm:text-base mb-3">
+                <span id="summary-total" class="font-bold text-gray-900">0 د.م</span>
+                <span>المجموع الإجمالي</span>
+            </div>
+            <div class="flex items-center justify-between text-gray-700 text-sm sm:text-base mb-3">
+                <span id="summary-shipping" class="font-bold text-gray-900">مجاني</span>
+                <span>الشحن</span>
+            </div>
+            <div class="h-px bg-gray-200 my-3"></div>
+            <div class="flex items-center justify-between">
+                <span id="summary-grand-total" class="font-extrabold text-gray-900 text-lg">0 د.م</span>
+                <span class="font-bold text-gray-900">المجموع</span>
+            </div>
+        </div>
+
+        <button id="buy-btn" class="w-full bg-[#d4af37] hover:bg-[#c49a2e] text-black font-extrabold text-lg py-4 rounded-2xl transition">اشتري الآن</button>
+    </div>
+</div>
+
+<div id="success-modal" class="hidden fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-sm w-full p-7 text-center shadow-2xl">
+        <div class="mx-auto mb-5 w-16 h-16 rounded-full bg-[#fffdf5] border-2 border-[#d4af37] flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+            </svg>
+        </div>
+        <h3 class="text-xl font-extrabold text-gray-900 mb-2">تم استلام طلبك بنجاح</h3>
+        <p class="text-gray-600 text-sm leading-relaxed mb-6">سنتصل بك قريباً لتأكيد الطلب.</p>
+        <button id="success-modal-close" class="w-full bg-black hover:bg-gray-900 text-[#d4af37] font-extrabold py-3 rounded-xl transition">حسنًا</button>
+    </div>
+</div>
+
+<script>
+    const PRODUCT_CONFIG = {
+        name: 'HEXIN Foamy Cleaner',
+        currency: 'د.م',
+        regularPrice: 199,
+        offers: [
+            { qty: 1, price: 139, title: 'اشتري واحد فقط بـ', badge: null },
+            { qty: 2, price: 179, title: 'اشتري اتنان فقط بـ', badge: 'الأكثر طلباً' },
+            { qty: 3, price: 279, title: 'اشتري ثلاثة فقط بـ', badge: 'الأفضل اختياراً' }
+        ],
+        shippingFree: true
+    };
+
+    let selectedIndex = 0;
+
+    function formatPrice(n) {
+        return Math.round(n) + ' ' + PRODUCT_CONFIG.currency;
+    }
+
+    function computeOriginal(offer) {
+        if (offer.qty === 1) return PRODUCT_CONFIG.regularPrice;
+        return PRODUCT_CONFIG.offers[0].price * offer.qty;
+    }
+
+    function computeDiscountPercent(original, price) {
+        if (original <= price) return 0;
+        return Math.round(((original - price) / original) * 100);
+    }
+
+    function renderOffers() {
+        const container = document.getElementById('offers-container');
+        container.innerHTML = '';
+
+        PRODUCT_CONFIG.offers.forEach((offer, index) => {
+            const original = computeOriginal(offer);
+            const discount = computeDiscountPercent(original, offer.price);
+
+            const card = document.createElement('div');
+            card.className = 'offer-card border-2 border-gray-200 rounded-2xl p-4 cursor-pointer flex items-center justify-between gap-3' + (index === selectedIndex ? ' selected' : '');
+            card.setAttribute('data-index', index);
+
+            card.innerHTML = `
+                <div class="flex-1 text-right">
+                    <div class="flex items-center justify-end gap-2 flex-wrap">
+                        ${offer.badge ? `<span class="text-[11px] font-bold bg-black text-[#d4af37] px-2 py-0.5 rounded-full">${offer.badge}</span>` : ''}
+                        <span class="font-bold text-gray-900 text-base sm:text-lg">${offer.title} ${offer.price} ${PRODUCT_CONFIG.currency}</span>
+                    </div>
+                    <div class="flex items-center justify-end gap-2 mt-1">
+                        ${discount > 0 ? `<span class="text-xs sm:text-sm text-gray-400 line-through">${formatPrice(original)}</span>` : ''}
+                        ${discount > 0 ? `<span class="text-xs text-gray-500">احصل على خصم بقيمة ${formatPrice(original - offer.price)}</span>` : ''}
+                    </div>
+                    ${discount > 0 ? `<span class="inline-block mt-2 text-[11px] font-bold bg-black text-white px-2.5 py-0.5 rounded-full">${discount}%-</span>` : ''}
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                    <span class="font-extrabold text-gray-900 text-xl whitespace-nowrap">${offer.price} ${PRODUCT_CONFIG.currency}</span>
+                    <div class="radio-outer"><div class="radio-inner"></div></div>
+                </div>
+            `;
+
+            card.addEventListener('click', () => {
+                selectedIndex = index;
+                renderOffers();
+                updateSummary();
+            });
+
+            container.appendChild(card);
+        });
+    }
+
+    function updateSummary() {
+        const offer = PRODUCT_CONFIG.offers[selectedIndex];
+        document.getElementById('summary-total').textContent = formatPrice(offer.price);
+        document.getElementById('summary-shipping').textContent = PRODUCT_CONFIG.shippingFree ? 'مجاني' : formatPrice(PRODUCT_CONFIG.shippingCost || 0);
+        const grandTotal = offer.price + (PRODUCT_CONFIG.shippingFree ? 0 : (PRODUCT_CONFIG.shippingCost || 0));
+        document.getElementById('summary-grand-total').textContent = formatPrice(grandTotal);
+    }
+
+    function validateField(inputId, errorId, validator) {
+        const input = document.getElementById(inputId);
+        const error = document.getElementById(errorId);
+        const value = input.value.trim();
+        const valid = validator(value);
+        if (!valid) {
+            input.classList.add('field-error');
+            error.classList.remove('hidden');
+        } else {
+            input.classList.remove('field-error');
+            error.classList.add('hidden');
+        }
+        return valid;
+    }
+
+    document.getElementById('buy-btn').addEventListener('click', () => {
+        const nameValid = validateField('full-name', 'err-name', v => v.length >= 2);
+        const phoneValid = validateField('phone', 'err-phone', v => v.replace(/\s/g, '').length >= 8);
+        const addressValid = validateField('address', 'err-address', v => v.length >= 3);
+
+        document.getElementById('success-modal').classList.add('hidden');
+
+        if (nameValid && phoneValid && addressValid) {
+            const offer = PRODUCT_CONFIG.offers[selectedIndex];
+            const order = {
+                product: PRODUCT_CONFIG.name,
+                name: document.getElementById('full-name').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                address: document.getElementById('address').value.trim(),
+                qty: offer.qty,
+                price: offer.price
+            };
+            fetch('https://script.google.com/macros/s/AKfycbyFijaSZyIruNrRpLfmxYtj_UnTY54samq2aNL5ZrBH-uyy_EURGAj5o05rvTc4NIOq-Q/exec', {
+                method: 'POST',
+                body: JSON.stringify(order)
+            });
+            document.getElementById('success-modal').classList.remove('hidden');
+            document.getElementById('full-name').value = '';
+            document.getElementById('phone').value = '';
+            document.getElementById('address').value = '';
+        }
+    });
+
+    document.getElementById('success-modal-close').addEventListener('click', () => {
+        document.getElementById('success-modal').classList.add('hidden');
+    });
+
+    document.getElementById('success-modal').addEventListener('click', (event) => {
+        if (event.target === event.currentTarget) {
+            document.getElementById('success-modal').classList.add('hidden');
+        }
+    });
+
+    ['full-name', 'phone', 'address'].forEach((id, i) => {
+        const errIds = ['err-name', 'err-phone', 'err-address'];
+        document.getElementById(id).addEventListener('input', () => {
+            document.getElementById(id).classList.remove('field-error');
+            document.getElementById(errIds[i]).classList.add('hidden');
+        });
+    });
+
+    renderOffers();
+    updateSummary();
+</script>
+</section>
+
+<!-- ============================================================ -->
+<!-- 4) صورة صفحة المنتج - الجزء الثاني                             -->
+<!-- ============================================================ -->
+<section id="section-4-image2">
+    <img src="LP 2.png" alt="HEXIN Foamy Cleaner - الجزء الثاني" class="block w-full max-w-3xl sm:max-w-5xl mx-auto">
+</section>
+
+<!-- ============================================================ -->
+<!-- 5) آراء العملاء (Testimonials)                                 -->
+<!-- ============================================================ -->
+<section id="section-5-testimonials">
+<div id="testi-wrap">
+<!-- ===== Header ===== -->
+  <section class="section-header">
+    <div class="wrap">
+      <span class="eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L14.5 8.5L21 9.5L16.5 14L17.5 20.5L12 17.5L6.5 20.5L7.5 14L3 9.5L9.5 8.5L12 2Z" fill="#111"/></svg>
+        محادثات حقيقية موثّقة
+      </span>
+      <h2>ماذا قال عملاؤنا <span>بعد التجربة؟</span></h2>
+      <p>لقطات شاشة حقيقية من محادثاتنا على واتساب مع بعض عملائنا.</p>
+      <div class="trust-row">
+        <div class="trust-item"><span class="dot"></span> محادثات غير معدّلة</div>
+        <div class="trust-item"><span class="dot"></span> عملاء حقيقيون</div>
+        <div class="trust-item"><span class="dot"></span> تجارب فعلية بعد الاستعمال</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Testimonial Grid ===== -->
+  <section class="grid-section">
+    <div class="wrap">
+      <div class="grid" id="testiGrid">
+
+        <div class="card" data-index="0">
+          <span class="badge-num">1</span>
+          <span class="verified-tag">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 12l2 2 4-4M12 3l1.9 1.4 2.35-.4.9 2.2 2.2.9-.4 2.35L20 12l-1.4 1.9.4 2.35-2.2.9-.9 2.2-2.35-.4L12 21l-1.9-1.4-2.35.4-.9-2.2-2.2-.9.4-2.35L4 12l1.4-1.9-.4-2.35 2.2-.9.9-2.2 2.35.4L12 3z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            محادثة موثّقة
+          </span>
+          <div class="shot-frame">
+            <img src="1.png" alt="شهادة عميل حقيقية عبر واتساب - 1" loading="lazy">
+            <span class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7" stroke="#fff" stroke-width="1.8"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+          </div>
+          <div class="card-footer">
+            <div class="stars">★★★★★</div>
+            <div class="label">تجربة موثّقة عبر واتساب</div>
+          </div>
+        </div>
+
+        <div class="card" data-index="1">
+          <span class="badge-num">2</span>
+          <span class="verified-tag">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 12l2 2 4-4M12 3l1.9 1.4 2.35-.4.9 2.2 2.2.9-.4 2.35L20 12l-1.4 1.9.4 2.35-2.2.9-.9 2.2-2.35-.4L12 21l-1.9-1.4-2.35.4-.9-2.2-2.2-.9.4-2.35L4 12l1.4-1.9-.4-2.35 2.2-.9.9-2.2 2.35.4L12 3z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            محادثة موثّقة
+          </span>
+          <div class="shot-frame">
+            <img src="2.png" alt="شهادة عميل حقيقية عبر واتساب - 2" loading="lazy">
+            <span class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7" stroke="#fff" stroke-width="1.8"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+          </div>
+          <div class="card-footer">
+            <div class="stars">★★★★★</div>
+            <div class="label">تجربة موثّقة عبر واتساب</div>
+          </div>
+        </div>
+
+        <div class="card" data-index="2">
+          <span class="badge-num">3</span>
+          <span class="verified-tag">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 12l2 2 4-4M12 3l1.9 1.4 2.35-.4.9 2.2 2.2.9-.4 2.35L20 12l-1.4 1.9.4 2.35-2.2.9-.9 2.2-2.35-.4L12 21l-1.9-1.4-2.35.4-.9-2.2-2.2-.9.4-2.35L4 12l1.4-1.9-.4-2.35 2.2-.9.9-2.2 2.35.4L12 3z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            محادثة موثّقة
+          </span>
+          <div class="shot-frame">
+            <img src="3.png" alt="شهادة عميل حقيقية عبر واتساب - 3" loading="lazy">
+            <span class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7" stroke="#fff" stroke-width="1.8"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+          </div>
+          <div class="card-footer">
+            <div class="stars">★★★★★</div>
+            <div class="label">تجربة موثّقة عبر واتساب</div>
+          </div>
+        </div>
+
+        <div class="card" data-index="3">
+          <span class="badge-num">4</span>
+          <span class="verified-tag">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 12l2 2 4-4M12 3l1.9 1.4 2.35-.4.9 2.2 2.2.9-.4 2.35L20 12l-1.4 1.9.4 2.35-2.2.9-.9 2.2-2.35-.4L12 21l-1.9-1.4-2.35.4-.9-2.2-2.2-.9.4-2.35L4 12l1.4-1.9-.4-2.35 2.2-.9.9-2.2 2.35.4L12 3z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            محادثة موثّقة
+          </span>
+          <div class="shot-frame">
+            <img src="4.png" alt="شهادة عميل حقيقية عبر واتساب - 4" loading="lazy">
+            <span class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7" stroke="#fff" stroke-width="1.8"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+          </div>
+          <div class="card-footer">
+            <div class="stars">★★★★★</div>
+            <div class="label">تجربة موثّقة عبر واتساب</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Lightbox (fullscreen viewer) ===== -->
+  <div class="lightbox-overlay" id="testiLightbox">
+    <button class="lb-close" id="lbClose" aria-label="إغلاق">&times;</button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="السابق">&#10094;</button>
+    <div class="lb-stage" id="lbStage">
+      <img id="lbImage" src="" alt="">
+      <div class="lb-counter" id="lbCounter"></div>
+    </div>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="التالي">&#10095;</button>
+  </div>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-band">
+    <div class="wrap">
+      <p>انضم إلى عملائنا الذين جربوا الفرق بأنفسهم</p>
+      <a href="#section-3-order" class="cta-btn">اطلب الآن</a>
+      <div class="cta-note">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 9V13M12 17H12.01M10.29 3.86L1.82 18A2 2 0 003.54 21H20.46A2 2 0 0022.18 18L13.71 3.86A2 2 0 0010.29 3.86Z" stroke="#c81e12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        الكمية محدودة — اطلب الآن قبل نفاد المخزون
+      </div>
+    </div>
+  </section>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 6) الفوتر (Footer)                                             -->
+<!-- ============================================================ -->
+<section id="section-6-footer">
+<!-- ========================================== -->
+<!-- الفوتر الخاص بمتجر Dialk (بدون صفحة هبوط) -->
+<!-- ========================================== -->
+<footer class="bg-black pt-12 pb-8" dir="rtl">
+    <div class="container mx-auto px-4 max-w-5xl">
+
+        <!-- شعار المتجر: Dialk -->
+        <div class="flex justify-center mb-3">
+            <h2 class="dialk-logo text-5xl sm:text-6xl">
+                <span class="d-gold">D</span><span class="ialk-white">ialk</span>
+            </h2>
+        </div>
+
+        <div class="flex justify-center mb-10">
+            <div class="gold-divider w-40"></div>
+        </div>
+
+        <!-- الأقسام الثلاثة -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+
+            <!-- القسم الأول -->
+            <div>
+                <h3 class="text-lg font-bold text-[#d4af37] mb-4 inline-block border-b-2 border-[#d4af37] pb-1">الشروط والسياسات</h3>
+                <ul class="space-y-3 text-gray-300 font-medium">
+                    <li><button onclick="openModal('terms-modal')" class="hover:text-[#d4af37] transition">شروط الاستخدام</button></li>
+                    <li><button onclick="openModal('refund-modal')" class="hover:text-[#d4af37] transition">سياسة الاستبدال والاسترجاع</button></li>
+                    <li><button onclick="openModal('privacy-modal')" class="hover:text-[#d4af37] transition">سياسة الخصوصية</button></li>
+                </ul>
+            </div>
+
+            <!-- القسم الثاني -->
+            <div>
+                <h3 class="text-lg font-bold text-[#d4af37] mb-4 inline-block border-b-2 border-[#d4af37] pb-1">اتصل بنا</h3>
+                <ul class="space-y-3 text-gray-300 font-medium">
+                    <li><button onclick="openModal('contact-modal')" class="hover:text-[#d4af37] transition">اتصل بنا</button></li>
+                    <li><button onclick="openModal('faq-modal')" class="hover:text-[#d4af37] transition">الأسئلة المتكررة</button></li>
+                </ul>
+            </div>
+
+            <!-- القسم الثالث -->
+            <div>
+                <h3 class="text-lg font-bold text-[#d4af37] mb-4 inline-block border-b-2 border-[#d4af37] pb-1">عن المتجر</h3>
+                <ul class="space-y-3 text-gray-300 font-medium">
+                    <li><button onclick="openModal('about-modal')" class="hover:text-[#d4af37] transition">عن المتجر</button></li>
+                    <li><button onclick="openModal('payment-modal')" class="hover:text-[#d4af37] transition">طرق الدفع</button></li>
+                    <li><button onclick="openModal('shipping-modal')" class="hover:text-[#d4af37] transition">الشحن والتسليم</button></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- سطر الحقوق -->
+        <div class="mt-12 pt-6 border-t border-[#3a3222] text-center">
+            <p class="text-gray-400 text-sm">جميع الحقوق محفوظة &copy; 2020</p>
+        </div>
+
+    </div>
+</footer>
+
+<!-- ========================================== -->
+<!-- منطقة النوافذ المنبثقة (Modals) -->
+<!-- ========================================== -->
+
+<!-- 1. شروط الاستخدام -->
+<div id="terms-modal" class="fixed inset-0 bg-black bg-opacity-60 hidden z-50 flex justify-center items-center p-4">
+    <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full flex flex-col max-h-[85vh] overflow-hidden text-right" dir="rtl">
+        <div class="p-4 border-b-2 border-[#c9a24b] flex justify-between items-center bg-black">
+            <h2 class="text-xl font-bold text-[#d4af37]">شروط الاستخدام</h2>
+            <button onclick="closeModal('terms-modal')" class="text-[#d4af37] hover:text-white text-2xl font-bold transition">&times;</button>
+        </div>
+        <div class="p-6 overflow-y-auto space-y-4 text-gray-700 text-sm sm:text-base leading-relaxed flex-grow">
+            <!-- المقدمة -->
+            <div>
+                <h3 class="text-lg font-bold text-gray-800 mb-2">المقدمة</h3>
+                <p class="mb-2">تنطبق شروط الاستخدام على الموقع وعلى جميع أقسامها وفروعها ومواقع الإنترنت التابعة لها التي تُشير إلى هذه الشروط والأحكام كمرجعٍ لها.</p>
+                <p>عند زيارة الموقع، يقر العميل موافقته على الشروط والأحكام الحالية. وإن كنت لا توافق عليها، فعليك عدم استخدام هذا الموقع. ويحتفظ القائمون على الموقع بالحق في تغيير أجزاء من شروط الاستخدام والأحكام أو تعديلها أو إضافة معلومات إليها، أو إزالتها في أي وقت. وتصبح التغييرات سارية النفاذ عندما يتم نشرها على الموقع دون سابق إشعار. ويُرجى مراجعة شروط الاستخدام والأحكام بانتظام للاطلاع على أي تحديثات. ويشكِّل استخدامك المستمر للموقع ــ بعد نشر التغييرات الحادثة في هذه الشروط والأحكام الخاصة بالاستخدام ــ موافقتك التامة على تلك التغييرات.</p>
+            </div>
+
+            <!-- استخدام الموقع -->
+            <div>
+                <h3 class="text-lg font-bold text-gray-800 mb-2">استخدام الموقع</h3>
+                <p class="mb-2">لزيارة هذا الموقع، يجب ألا يقل عمرك عن <strong>18 عامًا</strong> أو أن تزور الموقع تحت إشراف أحد الوالدين أو الوصي القانوني.</p>
+                <p class="mb-2">ونمنحك ترخيصًا غير قابل للتحويل أو الإلغاء لكي تستخدم الموقع بموجب الشروط والأحكام المحدَّدة. وتكمن غاية هذا الترخيص في التسوُّق لشراء سلعٍ شخصية تُباع على الموقع. ويُحظر الاستخدام لأغراض تجارية أو الاستخدام باسم أي طرف ثالث، باستثناء ما تمَّ السماح به من قبلنا بوضوح وشفافية سلفًا. ويؤدِّي أي خرق لهذه الشروط والأحكام إلى إلغاء فوري للترخيص الممنوح في هذه الفقرة من دون أي سابق إنذار لك.</p>
+                <p class="mb-2">يتم عرض المحتوى الظاهر على هذا الموقع لأغراض إعلامية فقط. وتعود التوضيحات التي تخُص المنتجات والتي أُعرب عنها في هذا الموقع إلى البائعين أنفسهم وليس لنا فيها أي شأن. وترجع التعليقات أو الآراء الواردة على هذا الموقع إلى الجهة التي نشرتها وبالتالي لا تعكس آراءنا.</p>
+                <p class="mb-2">تتطلب بعض الخدمات والميزات ذات الصلة التي قد تكون متوفرة على الموقع التسجيل أو الاشتراك فيها. وباختيارك التسجيل أو الاشتراك في أيّ من هذه الخدمات أو الميزات ذات الصلة، فإنَّك توافق على تقديم معلومات دقيقة وحالية عن نفسك وعلى تحديثها في الوقت المناسب إذا طرأت أيّة تغييرات عليها. ويتحمَّل كُلّ مستخدم للموقع ــ وحده ــ مسؤولية حفظ كلمات السر وغيرها من أساليب تحديد حساب الاستخدام بطريقة سليمة. وتقع كامل المسؤولية على عاتق صاحب الحساب بالنسبة فيما يخص جميع الأنشطة التي تحدث باستخدام كلمة السر الخاصة به أو حسابه. بالإضافة إلى ذلك، عليك تبليغنا عن أي استخدام غير مصرَّح به لكلمة السر أو حسابك. ولا يُعد الموقع مسؤولاً في أي حال من الأحوال، بشكل مباشر أو غير مباشرٍ أو بأي شكل من الأشكال، عن أيّة خسارة أو أضرار من أي نوع، قد تنتُج عن تعثرك في الامتثال لهذا القِسم أو تتصل به.</p>
+                <p>وأثناء عملية التسجيل، يوافق العميل على تلقِّي رسائل إلكترونية ترويجية من قِبل الموقع. ويمكنك، في وقت لاحق، إلغاء هذا الخيار وعدم تلقي أي رسائل إلكترونية ترويجية من خلال الضغط على الرابط الموجود في الجزء السفلي من أية رسالة إلكترونية ترويجية.</p>
+            </div>
+
+            <!-- مشاركات المستخدم -->
+            <div>
+                <h3 class="text-lg font-bold text-gray-800 mb-2">مشاركات المستخدم</h3>
+                <p>إنّ كلّ مشاركاتك على الموقع و/أو ما تقدمه لنا، بما في ذلك ــ على سبيل المثال وليس الحصرــ الأسئلة والانتقادات والتعليقات والاقتراحات (مجتمعين في لفظة <strong>"المشاركات"</strong>) تصبح ملكنا الوحيد والحصري، ولا تعود بأي حالٍ من الأحوال ملكاً لك. وفضلاً عن الحقوق التي تنطبق على أي نوع من المشاركات، وبمجرَّد أنَّك تشاركنا بتعليقاتك أو انتقاداتك على الموقع، فإنَّك تمنحنا أيضاً حقّ استخدام الاسم الذي تعرضه والمرتبط مباشرةً بهذا النقد أو التعليق أو أي محتوى آخر. ولا يحق لك استخدام عنوان مزيَّف للبريد الإلكتروني أو الادِّعاء بأنّك شخصٌ آخر أو محاولة تضليلنا أو أي طرف ثالث فيما يتعلَّق بأصالة وموثوقيّة أي من المشاركات. ويجوز لنا حذف أيّ من المشاركات أو تعديلها، غير أننا لسنا ملزمين بذلك.</p>
+            </div>
+
+            <!-- الموافقة على الطلبات وتفاصيل الأسعار -->
+            <div>
+                <h3 class="text-lg font-bold text-gray-800 mb-2">الموافقة على الطلبات وتفاصيل الأسعار</h3>
+                <p class="mb-2">يُرجى الملاحظة أنّه في بعض الحالات، قد لا تتم الموافقة على طلب ما لعدَّة أسباب. ويحتفظ القائمون على الموقع بالحقّ في رفض أو إلغاء أي طلب لأي سببٍ من الأسباب وفي أي وقت. وقبل أن نوافق على الطلب، قد نطلب منك تقديم معلومات إضافية أو بيانات أخرى للتحقق من شيء ما، بما في ذلك ــ على سبيل المثال وليس الحصر، رقم الهاتف والعنوان.</p>
+                <p>ونحرص على توفير أدق المعلومات المتعلقة بالأسعار لجميع المستخدمين الذين يزورون الموقع. إلّا أنَّ الأخطاء قد تَرِدُ في بعض الأحيان، كالحالات التي لا يتمّ فيها تحديد سعر المنتج بشكلٍ صحيحٍ على الموقع. ومن ثمّ، فنحتفظ بالحقّ في رفض أو إلغاء أي طلب من الطلبات. وفي حالة ما إذا لم يتم تحديد سعر المنتج بشكلٍ صحيح، فيحق لنا، وفقًا لتقديرنا الخاص، الاتصال بك للحصول على تعليماتٍ أو إلغاء طلبك وإبلاغك بهذا الإلغاء. ولنا الحق في رفض أو إلغاء أي طلبات سواء تمّ تأكيدها أو لا وبعد إضافة الرسوم على بطاقة الائتمان.</p>
+            </div>
+
+            <!-- العلامات التجارية وحقوق النشر -->
+            <div>
+                <h3 class="text-lg font-bold text-gray-800 mb-2">العلامات التجارية وحقوق النشر</h3>
+                <p>إنَّ جميع حقوق الملكية الفكرية، سواء كانت مسجلَّة أو غير مسجلَّة، في الموقع، وجميع معلومات المحتوى والتصميمات الواردة على الموقع، تُعتبر ملكاً لنا، بما في ذلك على سبيل المثال وليس الحصر، النصوص والرسوم والبرامج والصور والفيديو والموسيقى والصوت، واختيارها وتنسيقها، فضلاً عن جميع مصنّفات البرمجيات ورموز المصادر والبرامج الرئيسية. وإنّ كلّ محتويات الموقع محميةٌ أيضًا بموجب حقوق النشر مجتمعة في صورة عمل واحد. جميع الحقوق محفوظة.</p>
+            </div>
+
+            <!-- القانون السائد والهيئات القضائية -->
+            <div>
+                <h3 class="text-lg font-bold text-gray-800 mb-2">القانون السائد والهيئات القضائية</h3>
+                <p>تُفسَّر هذه الشروط والأحكام وتُطبَّق بموجب القوانين السارية في البلد. وبموجب ذلك، يوافق كل طرف على المثول أمام هيئات المحاكم القضائية في البلد والتنازل عن أية اعتراضات تتعلق بالمكان.</p>
+            </div>
+
+            <!-- إلغاء الموافقة -->
+            <div>
+                <h3 class="text-lg font-bold text-gray-800 mb-2">إلغاء الموافقة</h3>
+                <p>بالإضافة إلى أي أحكام قانونية أو إجراءات الإنصاف القضائي، يجوز لنا، فورًا ومن دون سابق إنذار لك، إنهاء هذه الشروط والأحكام أو نلغي أيا من حقوقك الممنوحة أو جميعها بموجب الشروط والأحكام. وفي أي حالة لإنهاء هذا التعاقد، يتعيّن عليك التوقّف فورًا عن زيارة الموقع واستخدامه، وفضلاً عن إصدار أحكام قانونية أو إجراءات منصفة قضائيًا، قد نُلغي فورًا جميع كلمات السرّ أو غيرها من أساليب تعريف الحساب الممنوحة لك، ونرفض أي زيارة أو استخدام لهذا الموقع كلّيًا أو جزئيًا. ولن يؤثِّر أي إبطال لهذا الاتفاق في جميع الحقوق والالتزامات (بما في ذلك ولكن ليس على سبيل الحصر، التزامات الدفع) الخاصة بالأطراف والصادرة قبل تاريخ إنهاء التعاقد. ومن ثمّ، فتوافق على أنَّ القائمين على الموقع لن يتحملوا المسؤولية عنك أو عن أيّ فرد آخر نتيجة لتعليق الخدمة أو إنهائها. وإذا كنتَ غير راضٍ عن هذا الموقع أو عن أي من الشروط أو الأحكام أو النظام أو السياسات أو المبادئ التوجيهية أو الممارسات الخاصة بمتجر في كيفيّة إدارة المتجر، فالإجراء الوحيد والحصري الذي عليك اتخاذه عندئذٍ هو التوقُّف عن استخدام الموقع.</p>
+            </div>
+        </div>
+        <div class="p-4 border-t-2 border-[#c9a24b] bg-black text-center flex-shrink-0">
+            <button onclick="closeModal('terms-modal')" class="bg-[#d4af37] text-black px-8 py-2.5 rounded-lg hover:bg-[#e6c35c] transition font-bold w-full sm:w-auto">إغلاق</button>
+        </div>
+    </div>
+</div>
+
+<!-- 2. سياسة الاستبدال والاسترجاع -->
+<div id="refund-modal" class="fixed inset-0 bg-black bg-opacity-60 hidden z-50 flex justify-center items-center p-4">
+    <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full flex flex-col max-h-[85vh] overflow-hidden text-right" dir="rtl">
+        <div class="p-4 border-b-2 border-[#c9a24b] flex justify-between items-center bg-black">
+            <h2 class="text-xl font-bold text-[#d4af37]">سياسة الاستبدال والاسترجاع</h2>
+            <button onclick="closeModal('refund-modal')" class="text-[#d4af37] hover:text-white text-2xl font-bold transition">&times;</button>
+        </div>
+        <div class="p-6 overflow-y-auto space-y-4 text-gray-700 text-sm sm:text-base leading-relaxed flex-grow">
+            <!-- قائمة الشروط -->
+            <ul class="list-disc list-inside space-y-3">
+                <li><strong>الإستبدال والإسترجاع حق مضمون:</strong> لكل عملائنا وهو يشمل جميع المنتجات التي نعرضها على متجرنا.</li>
+                <li>جميع المنتجات المعروضة على متجرنا قابلة لسياسة الإستبدال والإسترجاع وفق الشروط والأحكام المنصوص عليها في هذه الصفحة.</li>
+                <li>يمكن الإرجاع أو الإستبدال إذا كان المنتج بنفس حالته الأصلية عند الشراء ومغلفاً بالغلاف الأصلي.</li>
+                <li>الاسترجاع خلال <strong>ثلاثة (3) أيام</strong> والاستبدال خلال <strong>سبعة (7) أيام</strong> من تاريخ الشراء.</li>
+                <li>يرجى التواصل معنا عبر صفحة "اتصل بنا" أو عبر أرقامنا الهاتفية من أجل طلب الإسترجاع أو الإستبدال.</li>
+                <li>يرجى تصوير المنتج وإرساله مع تحديد المدينة والعنوان ورقم الطلب ليتم إستبداله بمنتج آخر في حالة كان المنتج فاسداً أو به عيب معين، أو لا يشتغل وفق المتفق عليه.</li>
+                <li>يتم إسترجاع المبلغ للعميل كاملاً في حالة كان المنتج الذي توصل به مختلفاً تماماً عن وصف المنتج في صفحة المنتج بموقعنا.</li>
+                <li>لسنا مسؤولين عن أي توقعات لإستعمال المنتجات من طرف العميل لم نذكرها بصفحة المنتج بموقعنا.</li>
+                <li>تخصم قيمة لا تقل عن <strong>30 بالمائة</strong> إذا كان العميل لا يريد المنتج وليس به عيب ولا أي مشكل يذكر.</li>
+            </ul>
+        </div>
+        <div class="p-4 border-t-2 border-[#c9a24b] bg-black text-center flex-shrink-0">
+            <button onclick="closeModal('refund-modal')" class="bg-[#d4af37] text-black px-8 py-2.5 rounded-lg hover:bg-[#e6c35c] transition font-bold w-full sm:w-auto">إغلاق</button>
+        </div>
+    </div>
+</div>
+
+<!-- 3. سياسة الخصوصية -->
+<div id="privacy-modal" class="fixed inset-0 bg-black bg-opacity-60 hidden z-50 flex justify-center items-center p-4">
+    <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full flex flex-col max-h-[85vh] overflow-hidden text-right" dir="rtl">
+        <div class="p-4 border-b-2 border-[#c9a24b] flex justify-between items-center bg-black">
+            <h2 class="text-xl font-bold text-[#d4af37]">سياسة الخصوصية</h2>
+            <button onclick="closeModal('privacy-modal')" class="text-[#d4af37] hover:text-white text-2xl font-bold transition">&times;</button>
+        </div>
+        <div class="p-6 overflow-y-auto space-y-4 text-gray-700 text-sm sm:text-base leading-relaxed flex-grow">
+            <!-- المقدمة -->
+            <p>
+                موقعنا يحترم خصوصيّتك ويسعى لحماية بياناتك الشخصية. توضح سياسة الخصوصيّة كيفية جمع واستخدام بياناتك الشخصية (تحت ظروفٍ معينةٍ). كما تذكرُ أيضًا الإجراءات المتبعة لضمان خصوصية معلوماتك. وأخيرًا، تُحدّد هذه السياسة الخيارات المتاحة لكَ فيما يتعلَّق بجمع البيانات الشخصية واستخدامها والكشف عنها. ومن خلال زيارتك للموقع مباشرةً أو عن طريق موقعٍ آخر، فأنتَ توافق على الممارسات الموضحة في هذه السياسة.
+            </p>
+            <p>
+                إن حماية بياناتك أمرٌ هامٌ جدًّا بالنسبة إلينا. ومن ثم، يتم استخدام اسمك وغيره من المعلومات التي تتعلّق بك وفقًا للّنحو المبيّن في سياسة الخصوصيّة. وسنقوم بجمع المعلومات عند الضرورة أو إذا كانت ذات صلةٍ ضرورية مباشرةٍ بمعاملاتنا معكَ. وسنقوم بالاحتفاظ ببياناتك وفقًا للقانون أو لاستخدامها للأغراض التي جُمعت لأجلها. ويمكنك تصفح الموقع دون الحاجة إلى تقديم أيّة بيانات شخصيّة. وتبقى هويّتك الشخصية مجهولة طيلة زيارتك للموقع ولا يتم كشفها إلا إذا كنتَ تملك حسابًا إلكترونياً خاصًا على الموقع تدخل إليه بواسطة اسم المستخدم وكلمة السرّ.
+            </p>
+
+            <!-- القسم 1 -->
+            <h3 class="text-lg font-bold text-gray-900 mt-6 pt-4 border-t">1- البيانات التي نجمعها:</h3>
+            <p>
+                قد نحتاج لجمع المعلومات الخاصة بكَ إذا أردت تسجيل طلب شراء لسلعة من موقعنا. ونقوم بجمع وتخزين ومعالجة بياناتك اللازمة لمتابعة شرائك من موقعنا لتأمين أية مطالب محتملة قد تظهر لاحقاً، ولتزويدكَ بالخدمات المتوفرة لدينا. وقد نقوم بجمع معلومات شخصية تتضمَّن، على سبيل المثال وليس الحصر، الاسم والجنس وتاريخ الميلاد وعنوان البريد الإلكتروني والعنوان البريدي وعنوان التسليم (إذا كان مختلفًا) ورقم الهاتف وتفاصيل الدفع وتفاصيل عن بطاقات الدفع.
+            </p>
+            <p>
+                ونستخدم المعلومات التي تقدِّمها لتمكننا من معالجة طلباتك ولتزويدكَ بخدمات ومعلومات معروضة على موقعنا والتي تطلبها أنت. وعلاوةً على ذلك، سنستخدم المعلومات التي تقدَّمها في إدارة حسابك معنا وللتحقّقَ من المعاملات المالية التي تُجريها على الإنترنت وعمليات تدقيق تحميل البيانات من الموقع وتحديد هويّة زائري الموقع وتطوير تصميمات صفحات الموقع و/أو محتوياته وتخصيصها للمستخدمين. ونقوم بأبحاث عديدة متعلقة بالتركيبة السكانية، ونُرسل المعلومات المفيدة أو المطلوبة إلى المستخدم، على سبيل المثال معلومات حول المنتجات والخدمات، وذلك في حالة عدم اعتراضك على التواصل معك بشأن ذلك. ويتم التواصل عبر البريد الإلكتروني لتزويدك ببعض التفاصيل حول المنتجات والخدمات الأخرى إذا كنت ترغب في ذلك، وإذا كنتَ تفضّل عدم تلقي أية اتصالات ترويجيّة وتسويقيّة، فيُرجى الانسحاب من هذا الخيار في أي وقتٍ من الأوقات.
+            </p>
+            <p>
+                وقد نعطي اسمك وعنوانك إلى طرفٍ ثالث بهدف تسليمكَ طلب شرائك (على سبيل المثال، عامل التسليم أو المورِّد).
+            </p>
+            <p>
+                قد نتمكن من تخزين التفاصيل المتعلّقة بطلبك الحالي على موقعنا ولكن لا يمكننا استعادتها مباشرةً لأسبابٍ أمنيّة. وبتسجيل الدخول إلى حسابك على الموقع يمكنك الاطلاع على المعلومات وتفاصيل مشترياتك التي طلبتها أو التي ستتقدَّم بها قريبًا. وبمقدورك أيضاً إدارة تفاصيل عنوانك. كما يجدر بك التعهُّد بالتعامل بسريّة تامة عند الدخول إلى بياناتك الشخصيَّة فلا تجعلها متاحة لطرف ثالث غير مصرَّح به. ولا نتحمَّل أية مسؤولية ناتجة عن سوء استخدام كلمات السر إلا إذا كان سوء الاستخدام هذا ناشئ عن خطأ منّا.
+            </p>
+
+            <h4 class="font-bold text-gray-800 mt-4">استخدامات أخرى لمعلوماتك الشخصيَّة</h4>
+            <p>
+                قد نستخدم معلوماتك الشخصيَّة في استطلاعات الرأي وأبحاث التسويق، بناءً على رغبتك، لأغراضٍ إحصائية مع ضمان سريتها التامة، كما يحق لك الانسحاب في أيّ وقت. ولا نقوم بإرسال أي إجابات إلى أي طرف ثالث. ولا يتم الإفصاح عن عنوان بريدك الالكتروني إلا إذا رغبتَ في المشاركة في المسابقات. ونحتفظ بإجابات استطلاعات الرأي في مكانٍ منفصل تمامًا عن بريدك الإلكتروني الخاص.
+            </p>
+            <p>
+                وقد نقوم بإرسال معلومات عنَّا، أو عن الموقع أو مواقعنا الأخرى أو عن منتجاتنا أو مبيعاتنا أو عروض بيعنا أو نشراتنا وغير ذلك ممّا له علاقة بالشركات التابعة لمجموعتنا أو شُركائنا. وإذا كنت لا ترغب في الحصول على هذه المعلومات الإضافيّة (أو في أي جزءٍ منها)، فيُرجى الضغط على رابط "إلغاء الاشتراك" الموجود في أي بريد إلكتروني مرسل إليك، وسنتوقّف عن إرسال هذه المعلومات لك في غضون سبع أيام عمل من تلقي إخطارك. وسنتواصل معك للاستفسار عن المعلومات في حين عدم وضوحها.
+            </p>
+            <p>
+                وقد نستخدم بعض البيانات، مع الحفاظ التام على الخصوصيّة والسريّة على الموقع، لأغراض أخرى بما في ذلك التحقُّق من أماكن تواجد المستخدمين ومتابعة زيارتهم للموقع أو الروابط الواردة في البريد الإلكتروني في حين اشتراكهم لتلقيه، ولتزويد تلك البيانات مجهولة المصدر، التي لا تسمح بتحديد هويّتك الشخصيّة الفعليّة، إلى طرف ثالث كالنّاشرين على سبيل المثال. ومع ذلك، فتلك البيانات لن تؤدي إلى تحديد شخصيتك (لأنها غير محدّدة للهوية).
+            </p>
+
+            <h4 class="font-bold text-gray-800 mt-4">المنافسات</h4>
+            <p>
+                فيما يتعلق بأي منافسة، نستخدم البيانات لإخطار الفائزين وللإعلان عن عروضنا. ويمكنك العثور على مزيد من التفاصيل عن شروط المشاركة في كل منافسة على حدة.
+            </p>
+
+            <h4 class="font-bold text-gray-800 mt-4">الأطراف الاخرى وروابط المواقع</h4>
+            <p>
+                قد ننقل معلوماتك إلى شركات أخرى في مجموعتنا أو إلى وكلائنا والمتعاقدين معنا لمساعدتنا في المعاملات المتعلقة وفقا لبنود سياسة الخصوصية. وقد نلجأ على سبيل المثال إلى طرف ثالث لمعاونتنا في تسليم المنتجات إليك واستلام الدفعات منك واستخدامها لأغراض الإحصاءات وأبحاث التسويق أو لمساعدة فريق خدمة العملاء. وقد نحتاج لتبادل المعلومات مع طرف ثالث بهدف الحماية من الاحتيال والحد من مخاطر الائتمان. و في حال تمّ بيع شركتنا أو جزء منها، فقد نضطر لنقل قواعد بياناتنا التي تشمل معلوماتك الشخصيّة. بخلاف ما هو منصوص عليه في سياسة الخصوصية، لن نقوم ببيع بياناتك الشخصية أو الإفصاح عنها لطرف ثالث دون الحصول على موافقة مسبقة منك إلّا إذا كان ذلك ضروريًا للأغراض المنصوص عليها في سياسة الخصوصيّة هذه، أو إذا طُلب منّا ذلك بحكم القانون. قد يحتوي الموقع على إعلانات لطرف ثالث أو روابط تؤدِّي إلى مواقعٍ أخرى أو إطارات لمواقعٍ أخرى. ونحيطك علماً بأننا غير مسؤولين عن سياسة الخصوصيّة الخاصة بأي طرف ثالث أو محتوى تلك السياسات المطبّقة في المواقع الأخرى، فضلًا عن أنّنا غير مسؤولين إزاء أي طرف ثالث ننقل إليه بياناتك بما يتوافق مع سياسة الخصوصيّة.
+            </p>
+
+            <!-- القسم 2 -->
+            <h3 class="text-lg font-bold text-gray-900 mt-6 pt-4 border-t">2- ملفات تعريف الارتباط (COOKIES):</h3>
+            <p>
+                لا يُعتبر قبول ملفات تعريف الارتباط شرطًا أساسيًا لزيارة الموقع. ولكنّنا نشير إلى أنّه لا يمكن استخدام وظائف "السلّة" على الموقع وطلب أي غرض من دون تفعيل ملفات تعريف الارتباط. وتُعتبر ملفات تعريف الارتباط ملفات نصيّة صغيرة تسمح لخادمنا بتحديد حاسوبك كمستخدم فريدٍ عند زيارة صفحات معينة من الموقع. ويخزِّن متصفّحك هذه الملفات على قرص حاسوبك الثابت. ويمكن استخدام ملفات تعريف الارتباط لاكتشاف عنوان بروتوكول الإنترنت (IP)، مما يوفّر لك الوقت عندما تكون على الموقع أو تريد زيارته. ونستخدم ملفات تعريف الارتباط لضمان راحتك عندما تتصفّح هذا الموقع (لنتذكر على سبيل المثال هويّتك عندما تريد تعديل سلّة تسوقك بدون الحاجة إلى إعادة إدخال عنوان بريدك الإلكتروني) وليس من أجل الحصول على معلومات أخرى عنك أو استخدامها (مثلاً لأغراض التسويق المستهدف).
+            </p>
+            <p>
+                ويمكنك ضبط متصفحك حتى لا يقبل ملفات تعريف الارتباط ولكن هذا من شأنه أن يحدّ من استخدامك للموقع. ونرجو أن تتأكد من أنّ لجوءنا إلى ملفات تعريف الارتباط لا يحتوي على أية معلومات شخصية أو خاصة ويخلو من الفيروسات. ويستخدم هذا الموقع خدمة تحليلات جوجل (Google Analytics) وهي خدمة تقدّمها شركة جوجل لتحليل صفحات شبكة الإنترنت. ولتحليل كيفية استخدام المستخدمين للموقع، ترتكز خدمة تحليلات جوجل على ملفات تعريف الارتباط وهي ملفات نصيّة وُضعت على حاسوبك. وستنقل شركة جوجل المعلومات التي تولّدها ملفات تعريف الارتباط عن استخدامك لهذا الموقع إلى خوادم في الولايات المتحدة حيث سيتم تخزينها. وسوف تستخدم شركة جوجل هذه المعلومات لتقييم استخدامك للموقع، وإعداد تقارير لمشغلي الموقع عن نشاطه وتوفير خدمات أخرى مرتبطة بنشاط الموقع واستخدام الإنترنت. وقد تنقل جوجل أيضاً هذه المعلومات إلى طرف ثالث في حال طُلب منها ذلك بموجب القانون أو في حال عالج طرف ثالث المعلومات بالنيابة عن شركة جوجل. ولن تربط شركة جوجل عنوان بروتوكول الإنترنت خاصتكَ مع أيّة بيانات أخرى تحتفظ بها. ويمكنك رفض استخدام ملفات تعريف الارتباط وذلك عن طريق اختيار الإعدادات المناسبة على متصفحك، ومن خلال استخدامك هذا الموقع، فأنت توافق على أن تستخدم شركة جوجل بياناتك على النحو المبين والأغراض المفصَّلة أعلاه.
+            </p>
+
+            <!-- القسم 3 -->
+            <h3 class="text-lg font-bold text-gray-900 mt-6 pt-4 border-t">3- الأمان:</h3>
+            <p>
+                نستخدم تقنيات وإجراءات أمان ملائمة لمنع أي وصول غير مصرَّح به أو غير قانوني لمعلوماتك أو فقدانها أو تدميرها. فعندما نجمع البيانات من خلال الموقع، نقوم بتخزين معلوماتك الشخصية على قاعدة بيانات ضمن خادم إلكتروني آمن. فنستخدم أنظمة جدار الحماية على خوادمنا. وعندما نقوم بجمع تفاصيل بطاقات الدفع إلكترونيًا، فإننا نحميها من خلال استخدام التشفير، مثل طبقة مآخذ التوصيل الآمنة (SSL). فيصعب بالتّالي على أيّ متسلّلٍ فكّ تشفير معلوماتك بما أنّنا لا نستطيع ضمان الحماية بنسبة مئة في المئة. وننصحك بشدَّة بعدم إرسال كل تفاصيل بطاقة الائتمان أو بطاقة السحب الآلي عندما تتواصل معنا إلكترونيًا ومن دون تشفير. ونضع ضمانات ماديّة وإلكترونية وإجرائيّة مباشرة على عملية جمع معلوماتك وتخزينها والإفصاح عنها. وتتطلّب إجراءاتنا الأمنية أن نطلب منك أحياناً إثبات هويتك قبل أن نُفصِح لك عن معلوماتك الشخصية. وتقع على عاتقك مسؤولية حماية كلمتك السريّة وحاسوبك من أيّ استخدام غير مصرَّح به.
+            </p>
+
+            <!-- القسم 4 -->
+            <h3 class="text-lg font-bold text-gray-900 mt-6 pt-4 border-t">4- حقوق العميل:</h3>
+            <p>
+                في حال شعورك بالقلق على بياناتك، يحق لك طلب الوصول إلى البيانات الشخصيّة التي نحملها عنك أو سبق ونقلتها إلينا. ويحق لك أن تطلب منَّا تصحيح أي أخطاء في بياناتك الشخصيّة ويتم ذلك مجانًا. ولك الحق أيضًا في مطالبتنا، في أي وقت، بالتوقُّف عن استخدام بياناتك الشخصية لأغراض تسويقيّة مباشرة.
+            </p>
+        </div>
+        <div class="p-4 border-t-2 border-[#c9a24b] bg-black text-center flex-shrink-0">
+            <button onclick="closeModal('privacy-modal')" class="bg-[#d4af37] text-black px-8 py-2.5 rounded-lg hover:bg-[#e6c35c] transition font-bold w-full sm:w-auto">إغلاق</button>
+        </div>
+    </div>
+</div>
+
+<!-- 4. اتصل بنا -->
+<div id="contact-modal" class="fixed inset-0 bg-black bg-opacity-60 hidden z-50 flex justify-center items-center p-4">
+    <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full flex flex-col max-h-[85vh] overflow-hidden text-right" dir="rtl">
+        <div class="p-4 border-b-2 border-[#c9a24b] flex justify-between items-center bg-black">
+            <h2 class="text-xl font-bold text-[#d4af37]">اتصل بنا</h2>
+            <button onclick="closeModal('contact-modal')" class="text-[#d4af37] hover:text-white text-2xl font-bold transition">&times;</button>
+        </div>
+        <div class="p-6 overflow-y-auto space-y-4 text-gray-700 text-sm sm:text-base leading-relaxed flex-grow">
+            <p class="font-medium text-gray-800">سنكون سعداء بالتواصل معكم والإجابة عن أسئلتكم</p>
+            
+            <div class="space-y-4">
+                <!-- البريد الإلكتروني -->
+                <div class="flex flex-col gap-1">
+                    <label class="font-bold text-gray-900">البريد الإلكتروني:</label>
+                    <a href="mailto:dialkproducts@gmail.com" class="text-[#b8902e] hover:underline break-all" dir="ltr">dialkproducts@gmail.com</a>
+                </div>
+                
+                <!-- الهاتف -->
+                <div class="flex flex-col gap-1">
+                    <label class="font-bold text-gray-900">الهاتف:</label>
+                    <a href="tel:+212663643061" class="text-[#b8902e] hover:underline" dir="ltr">+212 6.63.64.30.61</a>
+                </div>
+            </div>
+        </div>
+        <div class="p-4 border-t-2 border-[#c9a24b] bg-black text-center flex-shrink-0">
+            <button onclick="closeModal('contact-modal')" class="bg-[#d4af37] text-black px-8 py-2.5 rounded-lg hover:bg-[#e6c35c] transition font-bold w-full sm:w-auto">إغلاق</button>
+        </div>
+    </div>
+</div>
+
+<!-- 5. الأسئلة المتكررة -->
+<div id="faq-modal" class="fixed inset-0 bg-black bg-opacity-60 hidden z-50 flex justify-center items-center p-4">
+    <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full flex flex-col max-h-[85vh] overflow-hidden text-right" dir="rtl">
+        <div class="p-4 border-b-2 border-[#c9a24b] flex justify-between items-center bg-black">
+            <h2 class="text-xl font-bold text-[#d4af37]">الأسئلة المتكررة</h2>
+            <button onclick="closeModal('faq-modal')" class="text-[#d4af37] hover:text-white text-2xl font-bold transition">&times;</button>
+        </div>
+        <div class="p-6 overflow-y-auto space-y-4 text-gray-700 text-sm sm:text-base leading-relaxed flex-grow">
+            <!-- سؤال 1 -->
+            <div>
+                <h3 class="font-bold text-gray-800 mb-1">متى يصل لي الطلب؟</h3>
+                <p>تعتمد المدة على شركة الشحن التي تم اختيارها والمسؤول عن التوصيل. نحن نوفر مجموعة من المسؤولين عن الشحن في المدن الكبرى، وعادة ما تستغرق عملية التوصيل من يوم إلى 3 أيام من تاريخ الطلب وتأكيده.</p>
+            </div>
+
+            <!-- سؤال 2 -->
+            <div>
+                <h3 class="font-bold text-gray-800 mb-1">هل يوجد توصيل خارج البلد؟</h3>
+                <p>حالياً، شركات الشحن المتعاقد معها تقوم بالتوصيل داخل البلد وفي مجموعة من المدن المحددة، ويتم عرض كافة المدن التي يصل إليها مندوب شركة الشحن في صفحة التوصيل.</p>
+                <p class="mt-2">يمكنك طلب التوصيل خارج البلد من فريق المتجر عبر الواتساب، وذلك لتزويدنا بمعلومات وزن المنتج وتسعير وكلاء الشحن الدوليين الذين ليسوا مسجلين حالياً في المتجر.</p>
+            </div>
+
+            <!-- سؤال 3 -->
+            <div>
+                <h3 class="font-bold text-gray-800 mb-1">في حالة وجود عيب مصنعي في المنتج؟</h3>
+                <p>يجب الرجوع وقراءة "سياسة الاسترجاع" لمعرفة الشروط والأحكام. في حالة وجود عيب مصنعي وتم الاتفاق على إرجاعه، يتم احتساب قيمة الشحن للشركة وكذلك إعادة الشحن على العميل، أما قيمة المنتج فلا يتم احتسابها على العميل حسب سياسة الاسترجاع.</p>
+            </div>
+
+            <!-- سؤال 4 -->
+            <div>
+                <h3 class="font-bold text-gray-800 mb-1">أريد طلب كميات كبيرة هل يوجد خصم؟</h3>
+                <p>يوفر المتجر خدمة توصيل الكميات الكبيرة، وهناك خصم يصل من 10% إلى 20% على بعض المنتجات. يمكن التواصل المباشر معنا عبر صفحة "اتصل بنا" للاستفسار عن تفاصيل الكميات والخصم المتاح.</p>
+            </div>
+        </div>
+        <div class="p-4 border-t-2 border-[#c9a24b] bg-black text-center flex-shrink-0">
+            <button onclick="closeModal('faq-modal')" class="bg-[#d4af37] text-black px-8 py-2.5 rounded-lg hover:bg-[#e6c35c] transition font-bold w-full sm:w-auto">إغلاق</button>
+        </div>
+    </div>
+</div>
+
+<!-- 6. عن المتجر -->
+<div id="about-modal" class="fixed inset-0 bg-black bg-opacity-60 hidden z-50 flex justify-center items-center p-4">
+    <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full flex flex-col max-h-[85vh] overflow-hidden text-right" dir="rtl">
+        <div class="p-4 border-b-2 border-[#c9a24b] flex justify-between items-center bg-black">
+            <h2 class="text-xl font-bold text-[#d4af37]">عن المتجر</h2>
+            <button onclick="closeModal('about-modal')" class="text-[#d4af37] hover:text-white text-2xl font-bold transition">&times;</button>
+        </div>
+        <div class="p-6 overflow-y-auto space-y-4 text-gray-700 text-sm sm:text-base leading-relaxed flex-grow">
+            <p class="text-lg font-medium text-gray-800">هذا المتجر بوابتك الجديدة للتسوق إلكترونياً بشكل سهل وبسيط.</p>
+            
+            <p>نوفر لك منتجات متعددة ذات جودة عالية لتختار منها الأفضل وبسعر تنافسي لن تجده في أي مكان آخر.</p>
+            
+            <p>التسوق معنا عملية ممتعة وآمنة. ونوفر لك كل ما تحتاجه من التسهيلات سواء في اختيار المنتج، أو في عملية الدفع، أو في عملية الشحن.</p>
+        </div>
+        <div class="p-4 border-t-2 border-[#c9a24b] bg-black text-center flex-shrink-0">
+            <button onclick="closeModal('about-modal')" class="bg-[#d4af37] text-black px-8 py-2.5 rounded-lg hover:bg-[#e6c35c] transition font-bold w-full sm:w-auto">إغلاق</button>
+        </div>
+    </div>
+</div>
+
+<!-- 7. طرق الدفع -->
+<div id="payment-modal" class="fixed inset-0 bg-black bg-opacity-60 hidden z-50 flex justify-center items-center p-4">
+    <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full flex flex-col max-h-[85vh] overflow-hidden text-right" dir="rtl">
+        <div class="p-4 border-b-2 border-[#c9a24b] flex justify-between items-center bg-black">
+            <h2 class="text-xl font-bold text-[#d4af37]">طرق الدفع</h2>
+            <button onclick="closeModal('payment-modal')" class="text-[#d4af37] hover:text-white text-2xl font-bold transition">&times;</button>
+        </div>
+        <div class="p-6 overflow-y-auto space-y-4 text-gray-700 text-sm sm:text-base leading-relaxed flex-grow">
+            <!-- عنوان الطريقة -->
+            <h3 class="text-lg font-bold text-gray-800 border-r-4 border-gray-800 pr-3">الدفع نقداً عند الاستلام (COD)</h3>
+            
+            <!-- شرح الخدمة -->
+            <div class="space-y-4">
+                <p><strong>الدفع عند الاستلام (Cash On Delivery)</strong> هي إحدى طرق الدفع الأساسية المتاحة على متجرنا. تمنحك هذه الخدمة المرونة الكاملة، حيث يمكنك تصفح المتجر واختيار المنتجات التي ترغب بها، ثم إجراء الطلب واختيار "الدفع عند الاستلام" كطريقة دفع.</p>
+                
+                <p>هذا يعني أن عملية الدفع تؤجل بالكامل إلى حين وصول الطلبية واستلامك للمنتج بين يديك.</p>
+                
+                <p><strong>كيف تتم العملية؟</strong></p>
+                <ul class="list-disc list-inside space-y-2 pr-2">
+                    <li>تقوم بطلب المنتج عبر الموقع.</li>
+                    <li>نقوم بشحن وإرسال المنتج إلى العنوان المتفق عليه (المدينة، الحي، المنزل، أو أي مكان آخر تفضله).</li>
+                    <li>يتم دفع قيمة الطلب نقداً عند استلامك للمنتج مباشرة.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="p-4 border-t-2 border-[#c9a24b] bg-black text-center flex-shrink-0">
+            <button onclick="closeModal('payment-modal')" class="bg-[#d4af37] text-black px-8 py-2.5 rounded-lg hover:bg-[#e6c35c] transition font-bold w-full sm:w-auto">إغلاق</button>
+        </div>
+    </div>
+</div>
+
+<!-- 8. الشحن والتسليم -->
+<div id="shipping-modal" class="fixed inset-0 bg-black bg-opacity-60 hidden z-50 flex justify-center items-center p-4">
+    <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full flex flex-col max-h-[85vh] overflow-hidden text-right" dir="rtl">
+        <div class="p-4 border-b-2 border-[#c9a24b] flex justify-between items-center bg-black">
+            <h2 class="text-xl font-bold text-[#d4af37]">الشحن والتسليم</h2>
+            <button onclick="closeModal('shipping-modal')" class="text-[#d4af37] hover:text-white text-2xl font-bold transition">&times;</button>
+        </div>
+        <div class="p-6 overflow-y-auto space-y-4 text-gray-700 text-sm sm:text-base leading-relaxed flex-grow">
+            <!-- مقدمة الشحن -->
+            <p>بعد تأكيد عملية الشراء، نقوم بشحن وإرسال المنتج عبر الطريقة التي قمتم باختيارها، إما عبر مسؤول الشحن الخاص بنا أو عبر خدمة أمانة إكسبريس.</p>
+            
+            <!-- طرق الشحن -->
+            <div>
+                <h3 class="text-lg font-bold text-gray-800 mb-3">طرق الشحن المتوفرة:</h3>
+                <ul class="list-disc list-inside space-y-4">
+                    <li>
+                        <strong>أمانة إكسبريس:</strong> خدمة تضمن لكم تسليم الإرساليات إلى العنوان المطلوب في مدة تتراوح بين <strong>3 أيام و 7 أيام</strong> نحو الإتجاهات الرئيسية.
+                    </li>
+                    <li>
+                        <strong>مسؤول الشحن:</strong> متجرنا يتعاقد مع مجموعة من مسؤولي الشحن بمجموعة من المدن، يقومون بإيصال المنتجات في مدة تتراوح بين <strong>يوم و 3 أيام</strong>.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="p-4 border-t-2 border-[#c9a24b] bg-black text-center flex-shrink-0">
+            <button onclick="closeModal('shipping-modal')" class="bg-[#d4af37] text-black px-8 py-2.5 rounded-lg hover:bg-[#e6c35c] transition font-bold w-full sm:w-auto">إغلاق</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- ========================================== -->
+<!-- سكربت التشغيل للنوافذ -->
+<!-- ========================================== -->
+<script>
+    function openModal(modalId) {
+        document.getElementById(modalId).classList.remove('hidden');
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).classList.add('hidden');
+    }
+
+    // إغلاق النافذة عند الضغط خارج منطقة المحتوى
+    window.onclick = function(event) {
+        const modals = document.querySelectorAll('.fixed.inset-0');
+        modals.forEach(modal => {
+            if (event.target == modal) {
+                modal.classList.add('hidden');
+            }
+        });
+    }
+</script>
+</section>
+<script>
+
+    function openModal(modalId) {
+        document.getElementById(modalId).classList.remove('hidden');
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).classList.add('hidden');
+    }
+
+    // إغلاق النافذة عند الضغط خارج منطقة المحتوى
+    window.onclick = function(event) {
+        const modals = document.querySelectorAll('.fixed.inset-0');
+        modals.forEach(modal => {
+            if (event.target == modal) {
+                modal.classList.add('hidden');
+            }
+        });
+    }
+
+</script>
+
+<!-- ===== Testimonials Lightbox Script ===== -->
+<script>
+(function(){
+  var images = [
+    '1.png',
+    '2.png',
+    '3.png',
+    '4.png'
+  ];
+  var overlay  = document.getElementById('testiLightbox');
+  var lbImage  = document.getElementById('lbImage');
+  var lbCounter= document.getElementById('lbCounter');
+  var lbStage  = document.getElementById('lbStage');
+  var btnClose = document.getElementById('lbClose');
+  var btnPrev  = document.getElementById('lbPrev');
+  var btnNext  = document.getElementById('lbNext');
+  var cards    = document.querySelectorAll('#testiGrid .card');
+  var current  = 0;
+
+  function show(index){
+    current = (index + images.length) % images.length;
+    lbImage.src = images[current];
+    lbCounter.textContent = (current + 1) + ' / ' + images.length;
+  }
+
+  function openLightbox(index){
+    show(index);
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox(){
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  cards.forEach(function(card){
+    card.addEventListener('click', function(){
+      openLightbox(parseInt(card.getAttribute('data-index'), 10));
+    });
+  });
+
+  btnClose.addEventListener('click', closeLightbox);
+  btnNext.addEventListener('click', function(){ show(current + 1); });
+  btnPrev.addEventListener('click', function(){ show(current - 1); });
+
+  overlay.addEventListener('click', function(e){
+    if (e.target === overlay) closeLightbox();
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (!overlay.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') show(current - 1);
+    if (e.key === 'ArrowLeft') show(current + 1);
+  });
+
+  // Touch swipe support
+  var touchStartX = 0, touchEndX = 0;
+  lbStage.addEventListener('touchstart', function(e){
+    touchStartX = e.changedTouches[0].screenX;
+  }, {passive:true});
+  lbStage.addEventListener('touchend', function(e){
+    touchEndX = e.changedTouches[0].screenX;
+    var diff = touchEndX - touchStartX;
+    if (Math.abs(diff) > 40){
+      if (diff < 0){ show(current + 1); } else { show(current - 1); }
+    }
+  }, {passive:true});
+})();
+</script>
+
+</body>
+</html>
