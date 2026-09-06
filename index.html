@@ -667,7 +667,7 @@ src="https://www.facebook.com/tr?id=1057053056700870&ev=PageView&noscript=1"
 <!-- 2) صورة صفحة المنتج - الجزء الأول                              -->
 <!-- ============================================================ -->
 <section id="section-2-image1">
-    <img src=" LP1.webp" alt="HEXIN Foamy Cleaner - الجزء الأول" class="block w-full max-w-3xl sm:max-w-5xl mx-auto">
+    <img src=" LP 1.webp" alt="HEXIN Foamy Cleaner - الجزء الأول" class="block w-full max-w-3xl sm:max-w-5xl mx-auto">
 </section>
 
 <!-- ============================================================ -->
@@ -864,6 +864,49 @@ src="https://www.facebook.com/tr?id=1057053056700870&ev=PageView&noscript=1"
         return 'evt-' + Date.now() + '-' + Math.random().toString(36).slice(2, 12);
     }
 
+    // ========================================================
+    // Meta Click / Browser identifiers
+    // نجيب _fbp و _fbc من Cookie، وإذا كان fbclid موجوداً
+    // ننشئ fbc بصيغة Meta الصحيحة ونحفظه في Cookie.
+    // ========================================================
+    function getCookieValue(name) {
+        const prefix = name + '=';
+        const cookies = document.cookie ? document.cookie.split('; ') : [];
+        for (const cookie of cookies) {
+            if (cookie.indexOf(prefix) === 0) {
+                return decodeURIComponent(cookie.substring(prefix.length));
+            }
+        }
+        return '';
+    }
+
+    function getMetaFbp() {
+        return getCookieValue('_fbp');
+    }
+
+    function getMetaFbc() {
+        const existingFbc = getCookieValue('_fbc');
+        if (existingFbc) {
+            return existingFbc;
+        }
+
+        const fbclid = new URLSearchParams(window.location.search).get('fbclid');
+        if (!fbclid) {
+            return '';
+        }
+
+        const fbc = 'fb.1.' + Date.now() + '.' + fbclid;
+
+        // الاحتفاظ بـ fbc للصفحات/الطلبات اللاحقة من نفس الزائر
+        try {
+            document.cookie = '_fbc=' + encodeURIComponent(fbc) + '; path=/; max-age=' + (90 * 24 * 60 * 60) + '; SameSite=Lax';
+        } catch (e) {
+            console.warn('تعذر حفظ _fbc في Cookie:', e);
+        }
+
+        return fbc;
+    }
+
     document.getElementById('buy-btn').addEventListener('click', async () => {
         const nameValid = validateField('full-name', 'err-name', v => v.length >= 2);
         const phoneValid = validateField('phone', 'err-phone', v => v.replace(/\s/g, '').length >= 8);
@@ -894,7 +937,10 @@ src="https://www.facebook.com/tr?id=1057053056700870&ev=PageView&noscript=1"
             qty: offer.qty,
             price: offer.price,
             eventId: purchaseEventId,      // نفس المعرّف غادي يوصل لـ Apps Script باش يبعثو لـ CAPI
-            pageUrl: window.location.href  // مفيد لـ Meta باش يعرف من أي صفحة جا الحدث
+            pageUrl: window.location.href, // مفيد لـ Meta باش يعرف من أي صفحة جا الحدث
+            fbp: getMetaFbp(),             // Browser ID من Meta Pixel Cookie
+            fbc: getMetaFbc(),             // Click ID من fbclid / _fbc
+            userAgent: navigator.userAgent // User Agent لتحسين Event Match Quality
         };
 
         try {
@@ -978,7 +1024,7 @@ src="https://www.facebook.com/tr?id=1057053056700870&ev=PageView&noscript=1"
 <!-- 4) صورة صفحة المنتج - الجزء الثاني                             -->
 <!-- ============================================================ -->
 <section id="section-4-image2">
-    <img src="LP2.webp" alt="HEXIN Foamy Cleaner - الجزء الثاني" class="block w-full max-w-3xl sm:max-w-5xl mx-auto">
+    <img src="LP 2.webp" alt="HEXIN Foamy Cleaner - الجزء الثاني" class="block w-full max-w-3xl sm:max-w-5xl mx-auto">
 </section>
 
 <!-- ============================================================ -->
