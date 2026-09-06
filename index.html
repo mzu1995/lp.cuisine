@@ -881,30 +881,54 @@ src="https://www.facebook.com/tr?id=1057053056700870&ev=PageView&noscript=1"
     }
 
     function getMetaFbp() {
+        // _fbp يتم إنشاؤه عادةً بواسطة Meta Pixel. لا ننشئ قيمة وهمية.
         return getCookieValue('_fbp');
     }
 
     function getMetaFbc() {
+        // 1) إذا كان _fbc موجوداً، نستعمله كما هو.
         const existingFbc = getCookieValue('_fbc');
         if (existingFbc) {
             return existingFbc;
         }
 
+        // 2) إذا كان fbclid موجوداً في الرابط، ننشئ fbc فوراً ونحفظه.
         const fbclid = new URLSearchParams(window.location.search).get('fbclid');
         if (!fbclid) {
-            return '';
+            // fallback إضافي في حال كانت Cookie غير متاحة.
+            try {
+                return localStorage.getItem('_meta_fbc') || '';
+            } catch (e) {
+                return '';
+            }
         }
 
         const fbc = 'fb.1.' + Date.now() + '.' + fbclid;
 
-        // الاحتفاظ بـ fbc للصفحات/الطلبات اللاحقة من نفس الزائر
+        // الاحتفاظ بـ fbc للصفحات/الطلبات اللاحقة من نفس الزائر.
         try {
             document.cookie = '_fbc=' + encodeURIComponent(fbc) + '; path=/; max-age=' + (90 * 24 * 60 * 60) + '; SameSite=Lax';
         } catch (e) {
             console.warn('تعذر حفظ _fbc في Cookie:', e);
         }
 
+        try {
+            localStorage.setItem('_meta_fbc', fbc);
+        } catch (e) {
+            // تجاهل الخطأ إذا كان localStorage غير متاح.
+        }
+
         return fbc;
+    }
+
+    // مهم: نلتقط fbclid عند دخول الزائر للصفحة، وليس فقط عند الضغط على زر الطلب.
+    // هذا يمنع ضياع fbc إذا تغير الرابط أو اختفى fbclid قبل إتمام الطلب.
+    try {
+        if (new URLSearchParams(window.location.search).get('fbclid')) {
+            getMetaFbc();
+        }
+    } catch (e) {
+        console.warn('تعذر التقاط fbclid:', e);
     }
 
     document.getElementById('buy-btn').addEventListener('click', async () => {
