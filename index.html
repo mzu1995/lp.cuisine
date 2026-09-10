@@ -25,9 +25,14 @@ src="https://www.facebook.com/tr?id=1057053056700870&ev=PageView&noscript=1"
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700;800;900&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://connect.facebook.net">
+<link rel="preload" as="image" href="LP1-part1.webp" fetchpriority="high">
+<link rel="stylesheet" href="styles.css">
+<!-- تحميل خطوط Google بشكل غير حاجب للعرض (async) بدل رابط CSS مباشر يوقف الرسم -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700;800;900&family=Dancing+Script:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700;800;900&family=Dancing+Script:wght@600;700&display=swap"></noscript>
 
-<script src="https://cdn.tailwindcss.com"></script>
+<!-- تم استبدال سكربت Tailwind CDN بملف CSS جاهز (styles.css) لإزالة عبء تشغيل المحرك في المتصفح -->
 
 <style>
 
@@ -39,6 +44,122 @@ src="https://www.facebook.com/tr?id=1057053056700870&ev=PageView&noscript=1"
         padding: 0;
     }
     html { scroll-behavior: smooth; }
+
+    /* ===== Footer: تثبيت التوسيط على شاشات اللابتوب ===== */
+    footer .container {
+        width: min(1200px, calc(100% - 48px)) !important;
+        max-width: 1200px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        box-sizing: border-box !important;
+    }
+
+    /* توزيع الأعمدة الثلاثة بالتساوي حول مركز الصفحة */
+    footer .footer-columns {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 60px;
+        text-align: center;
+        justify-items: center;
+        align-items: start;
+    }
+
+    footer .footer-columns > div {
+        width: 100%;
+        text-align: center;
+    }
+
+    @media (max-width: 767px) {
+        footer .container {
+            width: calc(100% - 32px) !important;
+        }
+
+        footer .footer-columns {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+    }
+
+    /* ===== Mobile performance & layout refinements ===== */
+    img {
+        max-width: 100%;
+    }
+
+    /* لا نحتاج تأثيرات hover على الأجهزة اللمسية */
+    @media (hover: none) {
+        .card:hover {
+            transform: none;
+            border-color: var(--panel-border);
+            box-shadow: 0 18px 40px rgba(0,0,0,.45);
+        }
+        .card:hover .shot-frame::after {
+            opacity: 0;
+        }
+        .card:hover .zoom-hint {
+            opacity: 0;
+            transform: translate(-50%,-50%) scale(.85);
+        }
+    }
+
+    /* تخفيف الحركة المستمرة على الهاتف مع الحفاظ على الشكل */
+    @media (max-width: 767px) {
+        html {
+            scroll-behavior: auto;
+        }
+
+        /* الحركات المستمرة غير ضرورية للمستخدم على الهاتف؛ إيقافها يقلل عمل الـ CPU */
+        .bell-icon,
+        .ring-pulse,
+        .live-dot {
+            animation: none !important;
+        }
+
+        .footer-container {
+            width: 100%;
+            max-width: 100%;
+            padding-left: 16px;
+            padding-right: 16px;
+            box-sizing: border-box;
+        }
+
+        footer .footer-columns {
+            grid-template-columns: 1fr;
+            gap: 32px;
+            width: 100%;
+            justify-items: center;
+        }
+
+        footer .footer-columns > div {
+            width: min(100%, 320px);
+        }
+
+        footer .footer-columns h3,
+        footer .footer-columns h4,
+        footer .footer-columns p,
+        footer .footer-columns a {
+            text-align: center;
+        }
+
+        /* صور الشهادات: سلوك ثابت وخفيف في الهاتف */
+        #testiGrid .shot-frame img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    /* تقليل تكلفة الحركات التي لا يحتاجها المستخدم أثناء التمرير */
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+        *, *::before, *::after {
+            animation-duration: .01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: .01ms !important;
+        }
+    }
 
     /* ===== 1) Promo banner ===== */
     
@@ -600,74 +721,16 @@ src="https://www.facebook.com/tr?id=1057053056700870&ev=PageView&noscript=1"
     setTimeout(animateIntro, 400);
 </script>
 </section>
-<script>
-
-    const COUNTER_CONFIG = {
-        startValue: 12,
-        targetValue: 42,
-        introDurationMs: 2400,
-        liveIncrementMin: 1,
-        liveIncrementMax: 3,
-        liveIntervalMinMs: 7000,
-        liveIntervalMaxMs: 16000
-    };
-
-    const countEl = document.getElementById('order-count');
-    let currentValue = COUNTER_CONFIG.startValue;
-
-    function setCount(value) {
-        currentValue = value;
-        countEl.textContent = value;
-        countEl.classList.remove('number-pop');
-        void countEl.offsetWidth;
-        countEl.classList.add('number-pop');
-    }
-
-    function animateIntro() {
-        const start = COUNTER_CONFIG.startValue;
-        const end = COUNTER_CONFIG.targetValue;
-        const duration = COUNTER_CONFIG.introDurationMs;
-        const startTime = performance.now();
-        let lastShown = start;
-
-        function tick(now) {
-            const elapsed = now - startTime;
-            const t = Math.min(elapsed / duration, 1);
-            const eased = 1 - Math.pow(1 - t, 3);
-            const value = Math.round(start + (end - start) * eased);
-            if (value !== lastShown) {
-                lastShown = value;
-                setCount(value);
-            }
-            if (t < 1) {
-                requestAnimationFrame(tick);
-            } else {
-                setCount(end);
-                scheduleLiveIncrement();
-            }
-        }
-        requestAnimationFrame(tick);
-    }
-
-    function scheduleLiveIncrement() {
-        const delay = COUNTER_CONFIG.liveIntervalMinMs + Math.random() * (COUNTER_CONFIG.liveIntervalMaxMs - COUNTER_CONFIG.liveIntervalMinMs);
-        setTimeout(() => {
-            const add = Math.floor(COUNTER_CONFIG.liveIncrementMin + Math.random() * (COUNTER_CONFIG.liveIncrementMax - COUNTER_CONFIG.liveIncrementMin + 1));
-            setCount(currentValue + add);
-            scheduleLiveIncrement();
-        }, delay);
-    }
-
-    countEl.textContent = COUNTER_CONFIG.startValue;
-    setTimeout(animateIntro, 400);
-
-</script>
 
 <!-- ============================================================ -->
 <!-- 2) صورة صفحة المنتج - الجزء الأول                              -->
 <!-- ============================================================ -->
 <section id="section-2-image1">
-    <img src=" LP1.webp" alt="HEXIN Foamy Cleaner - الجزء الأول" class="block w-full max-w-3xl sm:max-w-5xl mx-auto">
+    <img src="LP1-part1.webp" alt="HEXIN Foamy Cleaner - الجزء الأول" class="block w-full max-w-3xl sm:max-w-5xl mx-auto" fetchpriority="high" decoding="async" width="800" height="857">
+    <img src="LP1-part2.webp" alt="HEXIN Foamy Cleaner - الجزء الأول" class="block w-full max-w-3xl sm:max-w-5xl mx-auto" loading="lazy" decoding="async" width="800" height="786">
+    <img src="LP1-part3.webp" alt="HEXIN Foamy Cleaner - الجزء الأول" class="block w-full max-w-3xl sm:max-w-5xl mx-auto" loading="lazy" decoding="async" width="800" height="892">
+    <img src="LP1-part4.webp" alt="HEXIN Foamy Cleaner - الجزء الأول" class="block w-full max-w-3xl sm:max-w-5xl mx-auto" loading="lazy" decoding="async" width="800" height="656">
+    <img src="LP1-part5.webp" alt="HEXIN Foamy Cleaner - الجزء الأول" class="block w-full max-w-3xl sm:max-w-5xl mx-auto" loading="lazy" decoding="async" width="800" height="911">
 </section>
 
 <!-- ============================================================ -->
@@ -742,18 +805,31 @@ src="https://www.facebook.com/tr?id=1057053056700870&ev=PageView&noscript=1"
             </div>
         </div>
 
+        <div class="flex items-center justify-between gap-3 rounded-2xl px-4 py-3.5 mb-6" style="background:#111111;border:1.5px solid #d4af37;">
+            <div class="flex items-center gap-2.5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="1" y="3" width="15" height="13"/>
+                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                    <circle cx="5.5" cy="18.5" r="2.5"/>
+                    <circle cx="18.5" cy="18.5" r="2.5"/>
+                </svg>
+                <span class="text-sm sm:text-base font-bold text-white">التوصيل لجميع المدن</span>
+            </div>
+            <span class="text-sm sm:text-base font-extrabold" style="color:#d4af37;">20 د.م</span>
+        </div>
+
         <div class="border border-gray-200 rounded-2xl p-5 mb-6">
             <div class="flex items-center justify-between text-gray-700 text-sm sm:text-base mb-3">
-                <span>ثمن المنتج</span>
+                <span>سعر المنتج</span>
                 <span id="summary-total" class="font-bold text-gray-900">0 د.م</span>
             </div>
             <div class="flex items-center justify-between text-gray-700 text-sm sm:text-base mb-3">
-                <span>الشحن</span>
+                <span>التوصيل</span>
                 <span id="summary-shipping" class="font-bold text-gray-900">مجاني</span>
             </div>
             <div class="h-px bg-gray-200 my-3"></div>
             <div class="flex items-center justify-between">
-                <span class="font-bold text-gray-900">المجموع</span>
+                <span class="font-bold text-gray-900">المجموع الكلي</span>
                 <span id="summary-grand-total" class="font-extrabold text-gray-900 text-lg">0 د.م</span>
             </div>
         </div>
@@ -785,7 +861,8 @@ src="https://www.facebook.com/tr?id=1057053056700870&ev=PageView&noscript=1"
             { qty: 2, price: 179, title: 'اشتري اتنان فقط بـ', badge: 'الأكثر طلباً' },
             { qty: 3, price: 279, title: 'اشتري ثلاثة فقط بـ', badge: 'الأفضل اختياراً' }
         ],
-        shippingFree: true
+        shippingFree: false,
+        shippingCost: 20
     };
 
     let selectedIndex = 0;
@@ -1089,7 +1166,7 @@ src="https://www.facebook.com/tr?id=1057053056700870&ev=PageView&noscript=1"
 <!-- 4) صورة صفحة المنتج - الجزء الثاني                             -->
 <!-- ============================================================ -->
 <section id="section-4-image2">
-    <img src="LP2.webp" alt="HEXIN Foamy Cleaner - الجزء الثاني" class="block w-full max-w-3xl sm:max-w-5xl mx-auto">
+    <img src="LP2-optimized.webp" alt="HEXIN Foamy Cleaner - الجزء الثاني" class="block w-full max-w-3xl sm:max-w-5xl mx-auto" loading="lazy" decoding="async" width="800" height="2688">
 </section>
 
 <!-- ============================================================ -->
@@ -1126,7 +1203,7 @@ src="https://www.facebook.com/tr?id=1057053056700870&ev=PageView&noscript=1"
             محادثة موثّقة
           </span>
           <div class="shot-frame">
-            <img src="1.PNG" alt="شهادة عميل حقيقية عبر واتساب - 1" loading="lazy">
+            <img src="1.webp" alt="شهادة عميل حقيقية عبر واتساب - 1" loading="lazy" decoding="async">
             <span class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7" stroke="#fff" stroke-width="1.8"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></span>
           </div>
           <div class="card-footer">
@@ -1142,7 +1219,7 @@ src="https://www.facebook.com/tr?id=1057053056700870&ev=PageView&noscript=1"
             محادثة موثّقة
           </span>
           <div class="shot-frame">
-            <img src="2.PNG" alt="شهادة عميل حقيقية عبر واتساب - 2" loading="lazy">
+            <img src="2.webp" alt="شهادة عميل حقيقية عبر واتساب - 2" loading="lazy" decoding="async">
             <span class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7" stroke="#fff" stroke-width="1.8"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></span>
           </div>
           <div class="card-footer">
@@ -1158,7 +1235,7 @@ src="https://www.facebook.com/tr?id=1057053056700870&ev=PageView&noscript=1"
             محادثة موثّقة
           </span>
           <div class="shot-frame">
-            <img src="3.PNG" alt="شهادة عميل حقيقية عبر واتساب - 3" loading="lazy">
+            <img src="3.webp" alt="شهادة عميل حقيقية عبر واتساب - 3" loading="lazy" decoding="async">
             <span class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7" stroke="#fff" stroke-width="1.8"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></span>
           </div>
           <div class="card-footer">
@@ -1174,7 +1251,7 @@ src="https://www.facebook.com/tr?id=1057053056700870&ev=PageView&noscript=1"
             محادثة موثّقة
           </span>
           <div class="shot-frame">
-            <img src="4.PNG" alt="شهادة عميل حقيقية عبر واتساب - 4" loading="lazy">
+            <img src="4.webp" alt="شهادة عميل حقيقية عبر واتساب - 4" loading="lazy" decoding="async">
             <span class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="7" stroke="#fff" stroke-width="1.8"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></span>
           </div>
           <div class="card-footer">
@@ -1220,7 +1297,7 @@ src="https://www.facebook.com/tr?id=1057053056700870&ev=PageView&noscript=1"
 <!-- الفوتر الخاص بمتجر Dialk (بدون صفحة هبوط) -->
 <!-- ========================================== -->
 <footer class="bg-black pt-12 pb-8" dir="rtl">
-    <div class="container mx-auto px-4 max-w-5xl">
+    <div class="container mx-auto px-4 max-w-5xl footer-container">
 
         <!-- شعار المتجر: Dialk -->
         <div class="flex justify-center mb-3">
@@ -1234,7 +1311,7 @@ src="https://www.facebook.com/tr?id=1057053056700870&ev=PageView&noscript=1"
         </div>
 
         <!-- الأقسام الثلاثة -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center footer-columns">
 
             <!-- القسم الأول -->
             <div>
@@ -1621,36 +1698,15 @@ src="https://www.facebook.com/tr?id=1057053056700870&ev=PageView&noscript=1"
     }
 </script>
 </section>
-<script>
-
-    function openModal(modalId) {
-        document.getElementById(modalId).classList.remove('hidden');
-    }
-
-    function closeModal(modalId) {
-        document.getElementById(modalId).classList.add('hidden');
-    }
-
-    // إغلاق النافذة عند الضغط خارج منطقة المحتوى
-    window.onclick = function(event) {
-        const modals = document.querySelectorAll('.fixed.inset-0');
-        modals.forEach(modal => {
-            if (event.target == modal) {
-                modal.classList.add('hidden');
-            }
-        });
-    }
-
-</script>
 
 <!-- ===== Testimonials Lightbox Script ===== -->
 <script>
 (function(){
   var images = [
-    '1.PNG',
-    '2.PNG',
-    '3.PNG',
-    '4.PNG'
+    '1.webp',
+    '2.webp',
+    '3.webp',
+    '4.webp'
   ];
   var overlay  = document.getElementById('testiLightbox');
   var lbImage  = document.getElementById('lbImage');
