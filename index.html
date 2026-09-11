@@ -815,7 +815,7 @@ src="https://www.facebook.com/tr?id=1057053056700870&ev=PageView&noscript=1"
                 </svg>
                 <span class="text-sm sm:text-base font-bold text-white">التوصيل لجميع المدن</span>
             </div>
-            <span class="text-sm sm:text-base font-extrabold" style="color:#d4af37;">20 د.م</span>
+            <span id="shipping-banner-price" class="text-sm sm:text-base font-extrabold" style="color:#d4af37;">20 د.م</span>
         </div>
 
         <div class="border border-gray-200 rounded-2xl p-5 mb-6">
@@ -1162,6 +1162,8 @@ src="https://www.facebook.com/tr?id=1057053056700870&ev=PageView&noscript=1"
 
     renderOffers();
     updateSummary();
+    document.getElementById('shipping-banner-price').textContent =
+        PRODUCT_CONFIG.shippingFree ? 'مجاني' : formatPrice(PRODUCT_CONFIG.shippingCost || 0);
 </script>
 </section>
 
